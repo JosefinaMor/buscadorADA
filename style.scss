@@ -1,9 +1,50 @@
+//variables
 $backgorund-color: #F2F2F2;
 $hover-color: #BCCBD8;
 $secundary-color: #8594A6;
 $primary-color: #3E4658;
-$typography-color: #000000;
+$typography-dark-color: #000000;
+$typography-light-color: #F2F2F2;
+$typography-english-text: 'Lato', sans-serif;
+$typography-japanese-text: 'Noto Sans JP', sans-serif;
+$typography-english-thin: 100;
+$typography-english-special: 300;
+$typography-english-bold: 700;
+$typography-japanese-thin: 100;
+$typography-japanese-bold: 700;
+
+@mixin display-flex-creator($direction: row) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: center;
+    align-items: center;
+}
+%button-nav{
+    height: 40px;
+    width: 60px;
+    @include display-flex-creator();
+    margin: 0 10px;
+}
 
 body{
-    background-color: $color-backgorund;
+    font-family: $typography-english-text;
+    background-color: $backgorund-color;
+    margin: 0;
+    height: 100vh;
+}
+main {
+    section{
+        @include display-flex-creator();
+        height: 90px;
+        background-color: $primary-color;
+        button{
+            @extend %button-nav;
+        }
+    }
+}
+footer{
+    background-color: $primary-color;
+    color: $typography-light-color;
+    @include display-flex-creator($direction: column);
+    height: 90px;
 }
