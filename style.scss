@@ -13,11 +13,11 @@ $typography-english-bold: 700;
 $typography-japanese-thin: 100;
 $typography-japanese-bold: 700;
 
-@mixin display-flex-creator($direction: row) {
+@mixin display-flex-creator($direction: row, $justify-content: center, $align-items: center) {
     display: flex;
     flex-direction: $direction;
-    justify-content: center;
-    align-items: center;
+    justify-content: $justify-content;
+    align-items: $align-items;
 }
 @mixin button($back-color: transparent){
     height: 40px;
@@ -51,11 +51,32 @@ header {
 }
 main {
     section{ 
-        @include display-flex-creator();
+        @include display-flex-creator($direction: row, $justify-content: end, $align-items: start);
         height: 100vh;
         background-color: $hover-color;
         img{
             width: 100%;
+        }
+        aside{
+            width: 10%;
+        }
+        .principal-movie{
+            position: relative;
+            width: 80%;
+            @include display-flex-creator();
+            img{
+                height: 100%;
+            }
+            aside{
+                width: 30%;
+                height: 100%;
+                opacity: 75%;
+                position: absolute;
+                right: 0;
+                z-index: 2;
+                padding: 0 15px;
+                background-color: $secundary-color;
+            }
         }
     }
 }
