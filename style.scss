@@ -8,7 +8,7 @@ $typography-light-color: #F2F2F2;
 $typography-english-text: 'Lato', sans-serif;
 $typography-japanese-text: 'Noto Sans JP', sans-serif;
 $typography-english-thin: 100;
-$typography-english-special: 300;
+$typography-english-normal: "300";
 $typography-english-bold: 700;
 $typography-japanese-thin: 100;
 $typography-japanese-bold: 700;
@@ -19,32 +19,53 @@ $typography-japanese-bold: 700;
     justify-content: center;
     align-items: center;
 }
-%button-nav{
+@mixin button($back-color: transparent){
     height: 40px;
     width: 60px;
     @include display-flex-creator();
+    background-color: $back-color;
+    color: $typography-light-color;
+    border: none;
     margin: 0 10px;
 }
 
 body{
     font-family: $typography-english-text;
+    font-weight: $typography-english-normal;
     background-color: $backgorund-color;
     margin: 0;
     height: 100vh;
 }
-main {
-    section{
+header {
+    nav{
+        position: absolute;
+        top: 0;
+        z-index: 1;
         @include display-flex-creator();
         height: 90px;
-        background-color: $primary-color;
+        background-color: transparent;
         button{
-            @extend %button-nav;
+            @include button();
+        }
+    }
+}
+main {
+    div{ 
+        @include display-flex-creator();
+        height: 100vh;
+        background-color: $hover-color;
+        img{
+            width: 100%;
         }
     }
 }
 footer{
+    position: absolute;
+    bottom: 0;
+    z-index: 1;
     background-color: $primary-color;
     color: $typography-light-color;
     @include display-flex-creator($direction: column);
     height: 90px;
+    width: 100%;
 }
