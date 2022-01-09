@@ -6,6 +6,11 @@ body {
   height: 100vh;
 }
 
+span {
+  font-size: 15px;
+  font-family: "Noto Sans JP", sans-serif;
+}
+
 header nav {
   position: absolute;
   top: 0;
@@ -33,9 +38,8 @@ header nav button {
 main section {
   display: flex;
   flex-direction: row;
-  justify-content: end;
+  justify-content: center;
   align-items: start;
-  height: 100vh;
   background-color: #BCCBD8;
 }
 main section img {
@@ -44,18 +48,34 @@ main section img {
 main section aside {
   width: 10%;
 }
-main section .principal-movie {
+
+.movies {
+  padding: 40px;
+}
+.movies aside {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: start;
+}
+.movies section {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+}
+.movies section .principal-movie {
+  margin-bottom: 20px;
   position: relative;
-  width: 80%;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
-main section .principal-movie img {
+.movies section .principal-movie img {
   height: 100%;
 }
-main section .principal-movie aside {
+.movies section .principal-movie aside {
   width: 30%;
   height: 100%;
   opacity: 75%;
@@ -64,6 +84,22 @@ main section .principal-movie aside {
   z-index: 2;
   padding: 0 15px;
   background-color: #8594A6;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+}
+.movies section .movie-paging {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: start;
+}
+.movies section .movie-paging div {
+  width: 15%;
+}
+.movies section .movie-paging div h4 {
+  margin: 0;
 }
 
 footer {
