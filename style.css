@@ -30,7 +30,7 @@ header nav button {
   margin: 0 10px;
 }
 
-main div {
+main section {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -38,14 +38,11 @@ main div {
   height: 100vh;
   background-color: #BCCBD8;
 }
-main div img {
+main section img {
   width: 100%;
 }
 
 footer {
-  position: absolute;
-  bottom: 0;
-  z-index: 1;
   background-color: #3E4658;
   color: #F2F2F2;
   display: flex;

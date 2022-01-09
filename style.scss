@@ -50,7 +50,7 @@ header {
     }
 }
 main {
-    div{ 
+    section{ 
         @include display-flex-creator();
         height: 100vh;
         background-color: $hover-color;
@@ -60,9 +60,6 @@ main {
     }
 }
 footer{
-    position: absolute;
-    bottom: 0;
-    z-index: 1;
     background-color: $primary-color;
     color: $typography-light-color;
     @include display-flex-creator($direction: column);
