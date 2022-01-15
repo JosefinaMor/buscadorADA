@@ -23,10 +23,10 @@ $typography-japanese-bold: 700;
     height: 40px;
     width: 60px;
     @include display-flex-creator();
+    border-radius: 10px;
     background-color: $back-color;
     color: $typography-light-color;
     border: none;
-    margin: 0 10px;
 }
 
 body{
@@ -48,10 +48,6 @@ header {
         z-index: 1;
         height: 600px;
     }
-           // button{
-       //     @include button();
-       // }
-    
 }
 main {
     section{ 
@@ -61,7 +57,7 @@ main {
             width: 100%;
             opacity: 50%;
         }
-        i{
+        .position-down{
             @include display-flex-creator($direction: row, $justify-content: center, $align-items: end);
             font-size: 80px;
             position: absolute;
@@ -82,28 +78,37 @@ main {
     }
     section{
         @include display-flex-creator($direction: column, $justify-content: start, $align-items: start);
-        .principal-movie{
-            margin-bottom: 20px;
-            height: 50vh;
-            position: relative;
-            @include display-flex-creator();
-            img{
-                height: 100%;
-                opacity: 100%;
-            }
-            aside{
-                width: 30%;
-                height: 100%;
-                opacity: 75%;
-                position: absolute;
-                right: 0;
-                z-index: 2;
-                padding: 0 15px;
-                background-color: $secundary-color;
-                @include display-flex-creator($direction: column, $justify-content: start, $align-items: start);       
-
+        .search-section{
+            @include display-flex-creator($direction: row, $justify-content: start, $align-items: start);
+            button{
+                @include button($back-color: $primary-color);
+                i{
+                    font-size: 15px;
+                }
             }
         }
+        // .principal-movie{
+        //     margin-bottom: 20px;
+        //     height: 50vh;
+        //     position: relative;
+        //     @include display-flex-creator();
+        //     img{
+        //         height: 100%;
+        //         opacity: 100%;
+        //     }
+        //     aside{
+        //         width: 30%;
+        //         height: 100%;
+        //         opacity: 75%;
+        //         position: absolute;
+        //         right: 0;
+        //         z-index: 2;
+        //         padding: 0 15px;
+        //         background-color: $secundary-color;
+        //         @include display-flex-creator($direction: column, $justify-content: start, $align-items: start);       
+
+        //     }
+        // }
         .movie-paging{
             @include display-flex-creator($direction: row, $justify-content: space-between, $align-items: start);       
             div{
