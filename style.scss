@@ -41,17 +41,17 @@ span{
     font-family: $typography-japanese-text;
 }
 header {
-    nav{
+    img{
         position: absolute;
-        top: 0;
+        top: -80px;
+        left: 60px;
         z-index: 1;
-        @include display-flex-creator();
-        height: 90px;
-        background-color: transparent;
-        button{
-            @include button();
-        }
+        height: 600px;
     }
+           // button{
+       //     @include button();
+       // }
+    
 }
 main {
     section{ 
@@ -59,6 +59,14 @@ main {
         background-color: $hover-color;
         img{
             width: 100%;
+            opacity: 50%;
+        }
+        i{
+            @include display-flex-creator($direction: row, $justify-content: center, $align-items: end);
+            font-size: 80px;
+            position: absolute;
+            bottom: 30px;
+            z-index: 1;
         }
         aside{
             width: 10%;
@@ -66,18 +74,22 @@ main {
     }
 }
 .movies{
-    padding: 40px;
+    padding: 80px 40px;
+    @include display-flex-creator($direction: row, $justify-content: space-between, $align-items: start); 
     aside{
-        @include display-flex-creator($direction: column, $justify-content: end, $align-items: start);       
+        @include display-flex-creator($direction: column, $justify-content: end, $align-items: start); 
+        margin-right: 20px;      
     }
     section{
         @include display-flex-creator($direction: column, $justify-content: start, $align-items: start);
         .principal-movie{
             margin-bottom: 20px;
+            height: 50vh;
             position: relative;
             @include display-flex-creator();
             img{
                 height: 100%;
+                opacity: 100%;
             }
             aside{
                 width: 30%;
@@ -95,7 +107,10 @@ main {
         .movie-paging{
             @include display-flex-creator($direction: row, $justify-content: space-between, $align-items: start);       
             div{
-                width: 15%;
+                width: 20%;
+                img{
+                    opacity: 100%;
+                }
                 h4{
                   margin: 0;  
                 } 
@@ -103,6 +118,7 @@ main {
         }
     }
 }
+
 footer{
     background-color: $primary-color;
     color: $typography-light-color;
