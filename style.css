@@ -135,6 +135,7 @@ main .movies section .movie-paging .card {
 main .movies section .movie-paging .card img {
   opacity: 100%;
   border-radius: 10px;
+  margin-bottom: 10px;
 }
 main .movies section .movie-paging .card h4 {
   margin: 0;
@@ -150,7 +151,7 @@ main .movies section .prev-next-buttons {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin: 30px 0 20px 0;
+  margin: 30px 0 0 0;
   width: 100%;
 }
 main .movies section .prev-next-buttons button {
