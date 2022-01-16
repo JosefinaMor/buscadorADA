@@ -24,8 +24,15 @@ const createCardsInHTML = (iValue, data) =>{//I receive the displayed movies and
     return i;
 }
 
-const showMoreInformation = () =>{
+const showMoreInformation = (iValue, data) =>{
+    const filmNumber = createCardsInHTML(iValue, data)
     const cards = document.querySelectorAll(".card");
+    cards.forEach((element)=>{
+        element.onclick = () =>{
+            console.log("helloworld")
+        } 
+    });
+    return filmNumber;
 }
 
 const prevSubstraction = (iValue, data) =>{
@@ -43,7 +50,7 @@ const sayhello = () =>{
 fetch('https://ghibliapi.herokuapp.com/films')
 .then(res => res.json())
 .then((data)=>{
-    filmNumber = createCardsInHTML(0, data);
+    filmNumber = showMoreInformation(0, data);
     console.log(filmNumber)
     prevButton.onclick = () =>{
         filmNumber = prevSubstraction(filmNumber, data);
