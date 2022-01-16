@@ -9,7 +9,7 @@ const createCardsInHTML = (iValue, data) =>{//I receive the displayed movies and
     const cardsHTML = data.reduce((acc, element, index) =>{
         if (i === index){
             if (i < iValue+4 && i >= iValue){
-                acc = acc +`<div class="card" id="show-big-card">
+                acc = acc +`<div class="card">
                                 <img src="${element.image}">
                                 <h4>${element.original_title_romanised}</h4>
                                 <span>${element.original_title}</span>
@@ -24,15 +24,8 @@ const createCardsInHTML = (iValue, data) =>{//I receive the displayed movies and
     return i;
 }
 
-const pageFilter = () =>{
-    const filmPageArray = operaciones.filter((element, index) => {
-        if (i === index){
-            if (i < iValue+4 && i >= iValue){
-                return element;
-            }
-        }
-      });
-      return filmPageArray;
+const showMoreInformation = () =>{
+    const cards = document.querySelectorAll(".card");
 }
 
 const prevSubstraction = (iValue, data) =>{
@@ -42,6 +35,9 @@ const prevSubstraction = (iValue, data) =>{
         return pageValue;
     }
     return 4;
+}
+const sayhello = () =>{
+    console.log("hello jo")
 }
 
 fetch('https://ghibliapi.herokuapp.com/films')
@@ -55,4 +51,5 @@ fetch('https://ghibliapi.herokuapp.com/films')
     nextButton.onclick = () =>{
         filmNumber = createCardsInHTML(filmNumber, data);
     } 
+    
 })
