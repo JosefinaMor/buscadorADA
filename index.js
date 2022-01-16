@@ -24,18 +24,21 @@ const createCardsInHTML = (iValue, data) =>{//I receive the displayed movies and
     return i;
 }
 
+const prevSubstraction = (iValue, data) =>{
+    iValue = iValue - 8;
+    const pageValue = createCardsInHTML(iValue, data);
+    return pageValue;
+}
+
 fetch('https://ghibliapi.herokuapp.com/films')
 .then(res => res.json())
 .then((data)=>{
-    console.log(data);
-    filmNumber = createCardsInHTML(0, data); 
-    console.log(filmNumber);
-    
+    filmNumber = createCardsInHTML(0, data);
+
+    prevButton.onclick = () =>{
+        filmNumber = prevSubstraction(filmNumber, data);
+    }
     nextButton.onclick = () =>{
-        console.log(filmNumber);
-        console.log(data)
         filmNumber = createCardsInHTML(filmNumber, data);
-        console.log(filmNumber);
-        console.log(1)
     } 
 })
