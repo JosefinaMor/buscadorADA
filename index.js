@@ -40,7 +40,7 @@ const showMoreInformation = (iValue, data) =>{
                 createInfoMovieSelected(cardData, createRatingWithStars(cardData.rt_score));
                 const closeModalButton = document.getElementById("close-modal-button");
                 const showCharactersButton = document.getElementById("show-characters-button");
-                const showCharacters = document.getElementById("characters");
+                const showCharacters = document.querySelector(".characters");
                 closeModalButton.onclick = () =>{
                     infoMovieSelected.style.display = "none";
                 }
@@ -56,10 +56,13 @@ const showMoreInformation = (iValue, data) =>{
 
 const fetchInformation = (arrayRout, condition) =>{ 
     const html = arrayRout.reduce((acc, element)=>{
+        console.log(element)
         fetch(element)
         .then(res => res.json())
         .then((cardData)=>{
-             createInfoExtra("characters", cardData);
+            var html = ``;
+            html = html + `${createInfoExtra("characters", cardData)}`;
+            console.log(html)
         })
         return acc;
     })
@@ -78,7 +81,6 @@ const createInfoExtra = (condition, element) =>{
     if(condition === "species"){
         html = ``;
     }
-    console.log(html)
     return html;
 }
 
