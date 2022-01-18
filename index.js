@@ -39,12 +39,13 @@ const showMoreInformation = (iValue, data) =>{
                 infoMovieSelected.style.display = "flex";
                 createInfoMovieSelected(cardData, createRatingWithStars(cardData.rt_score));
                 const closeModalButton = document.getElementById("close-modal-button");
-                const showCharacters = document.getElementById("show-characters");
+                const showCharactersButton = document.getElementById("show-characters-button");
+                const showCharacters = document.getElementById("characters");
                 closeModalButton.onclick = () =>{
                     infoMovieSelected.style.display = "none";
                 }
-                showCharacters.onclick = () =>{
-
+                showCharactersButton.onclick = () =>{
+                    showCharacters.innerHTML = fetchInformation(charactersArray, "characters");
                 }
             })
         } 
@@ -60,11 +61,11 @@ const fetchInformation = (arrayRout, condition) =>{
             acc = acc + `${createInfoExtra("characters", cardData)}`;
         })
     })
-    
+    return html;
 }
 
 const createInfoExtra = (condition, element) =>{
-    const html = ``;
+    var html = ``;
     if(condition === "characters"){
         html = `
             <div class="characterCard">
@@ -149,30 +150,8 @@ const createInfoMovieSelected = (cardData, rating) =>{
         </section>
         <section class="extra-information" id="extra-information">
             <hr>
-            <button id="show-characters"><span>Characters</span><i class="fas fa-chevron-down"></i></button>
-            <section class="characters">
-    <div class="characterCard">
-        <h3>Ashitaka</h3>
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae quibusdam placeat labore possimus inventore minima commodi perspiciatis nobis id reprehenderit debitis porro hic cupiditate tempore incidunt rem, iusto dignissimos minus!
-<p></p>
-    </div>
-    
-    <div class="characterCard">
-        <h3>Ashitaka</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae quibusdam placeat labore possimus inventore minima commodi perspiciatis nobis id reprehenderit debitis porro hic cupiditate tempore incidunt rem, iusto dignissimos minus!
-        </p>
-    </div>
-    <div class="characterCard">
-        <h3>Ashitaka</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae quibusdam placeat labore possimus inventore minima commodi perspiciatis nobis id reprehenderit debitis porro hic cupiditate tempore incidunt rem, iusto dignissimos minus!
-        </p>
-    </div> 
-    <div class="characterCard">
-        <h3>Ashitaka</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae quibusdam placeat labore possimus inventore minima commodi perspiciatis nobis id reprehenderit debitis porro hic cupiditate tempore incidunt rem, iusto dignissimos minus!
-        </p>
-    </div>
-</section>
+            <button id="show-characters-button"><span>Characters</span><i class="fas fa-chevron-down"></i></button>
+            <section class="characters"></section>
             <hr>
             <button id="show-species"><span>Species</span><i class="fas fa-chevron-down"></i></button>
         </section>
