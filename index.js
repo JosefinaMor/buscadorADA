@@ -1,6 +1,6 @@
 const moviePaging = document.getElementById("movie-paging");
-const prevButton = document.getElementById("prev-button");
-const nextButton = document.getElementById("next-button");
+const prevPageButton = document.getElementById("prev-page-button");
+const nextPageButton = document.getElementById("next-page-button");
 
 var filmNumber = 0; // this var is for making the paging where I count the displayed movies and subtract them from the movies array
 
@@ -9,15 +9,14 @@ const createCardsInHTML = (iValue, data) =>{//I receive the displayed movies and
     const cardsHTML = data.reduce((acc, element, index) =>{
         if (i === index){
             if (i < iValue+4 && i >= iValue){
-                acc = acc +`<div class="card">
+                acc = acc +`<div class="card" id="card${element.id}">
                                 <img src="${element.image}">
-                                <h4>${element.original_title_romanised}</h4>
+                                <h4>${element.title}</h4>
                                 <span>${element.original_title}</span>
                             </div>` 
                 i++;
             } 
         }
-        console.log(acc)
         return acc;   
     },"");  
     moviePaging.innerHTML = cardsHTML;
@@ -29,7 +28,7 @@ const showMoreInformation = (iValue, data) =>{
     const cards = document.querySelectorAll(".card");
     cards.forEach((element)=>{
         element.onclick = () =>{
-            console.log("helloworld")
+            console.log("helloworld " + element.id)
         } 
     });
     return filmNumber;
@@ -38,25 +37,22 @@ const showMoreInformation = (iValue, data) =>{
 const prevSubstraction = (iValue, data) =>{
     if (iValue > 4){
         iValue = iValue - 8;
-        const pageValue = createCardsInHTML(iValue, data);
+        const pageValue = showMoreInformation(iValue, data);
         return pageValue;
     }
     return 4;
-}
-const sayhello = () =>{
-    console.log("hello jo")
 }
 
 fetch('https://ghibliapi.herokuapp.com/films')
 .then(res => res.json())
 .then((data)=>{
+    console.log(data)
     filmNumber = showMoreInformation(0, data);
-    console.log(filmNumber)
-    prevButton.onclick = () =>{
+    prevPageButton.onclick = () =>{
         filmNumber = prevSubstraction(filmNumber, data);
     }
-    nextButton.onclick = () =>{
-        filmNumber = createCardsInHTML(filmNumber, data);
+    nextPageButton.onclick = () =>{
+        filmNumber = showMoreInformation(filmNumber, data);
     } 
     
 })
