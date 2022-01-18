@@ -28,7 +28,11 @@ const showMoreInformation = (iValue, data) =>{
     const cards = document.querySelectorAll(".card");
     cards.forEach((element)=>{
         element.onclick = () =>{
-            
+            fetch(`https://ghibliapi.herokuapp.com/films/${element.id}`)
+            .then(res => res.json())
+            .then((cardData)=>{
+                createInfoMovieSelected(cardData);
+            })
         } 
     });
     return filmNumber;
