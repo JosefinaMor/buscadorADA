@@ -28,11 +28,17 @@ const showMoreInformation = (iValue, data) =>{
     const cards = document.querySelectorAll(".card");
     cards.forEach((element)=>{
         element.onclick = () =>{
-            console.log("helloworld " + element.id)
+            fetch(`https://ghibliapi.herokuapp.com/films/${element.id}`)
+            .then(res => res.json())
+            .then((data)=>{
+                
+            })
         } 
     });
     return filmNumber;
 }
+
+const createMoreInformationCard
 
 const prevSubstraction = (iValue, data) =>{
     if (iValue > 4){
