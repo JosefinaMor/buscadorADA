@@ -91,7 +91,6 @@ main {
             }     
         }
         section{
-
             @include display-flex-creator($direction: column, $justify-content: start, $align-items: start);
             .search-section{
                 margin: 0 0 30px 0;
@@ -155,32 +154,46 @@ main {
         }
     }
     .info-movie-selected{
-        background-color: $primary-color;
-        color: $typography-light-color;
-        width: 80%;
-        @include display-flex-creator($direction: row, $justify-content: space-between, $align-items: center); 
-        aside{
-            img{
-                width: 100%;
-            }
-        } 
-        article{
-            width: 40%;
-            padding: 20px;
-            @include display-flex-creator($direction: column, $justify-content: center, $align-items: start); 
+        z-index: 2;
+        height: 100vh;
+        background-color: #bccbd8c4;
+        @include display-flex-creator($direction: row, $justify-content: center, $align-items: center);
+        div{  
+            background-color: $primary-color;
+            color: $typography-light-color;
+            border-radius: $border-radius;
+            padding: 10px 0 10px 10px;
+            width: 80%;
+            @include display-flex-creator($direction: row, $justify-content: space-between, $align-items: start); 
+            aside{
+                width: 60%;
+                img{
+                    width: 100%;
+                    opacity: 100%;
+                    border-radius: $border-radius;
+                }
+            } 
+            article{
+                width: 40%;
+                padding: 20px 20px 0 20px;
+                @include display-flex-creator($direction: column, $justify-content: center, $align-items: stretch); 
+                h2{
+                    margin: 0 0 10px 0;
+                }
                 .film-information{
                     width: 100%;
+                    padding: 0;
                     @include display-flex-creator($direction: row, $justify-content: space-between, $align-items: start); 
                     section{
-                        @include display-flex-creator($direction: column, $justify-content: start, $align-items: start); 
-
+                    @include display-flex-creator($direction: column, $justify-content: start, $align-items: start); 
                     }
                 }
                 .rating-score{
                     width: 100%;
+                    padding-top: 30px;
                 }
-        } 
-
+            } 
+        }
     }
 }
 footer{
