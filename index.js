@@ -5,6 +5,7 @@ const nextPageButton = document.getElementById("next-page-button");
 const infoMovieSelected = document.getElementById("info-movie-selected");
 const ratingScore = document.getElementById("rating-score");
 const closeModalButton = document.getElementById("close-modal-button");
+const infoCard = document.getElementById("info-card")
 
 
 var filmNumber = 0; // this var is for making the paging where I count the displayed movies and subtract them from the movies array
@@ -37,6 +38,9 @@ const showMoreInformation = (iValue, data) =>{
             .then(res => res.json())
             .then((cardData)=>{
                 createInfoMovieSelected(cardData, createRatingWithStars(cardData.rt_score));
+                closeModalButton.onclick = () =>{
+                    infoCard.classList.add("hide");
+                }
             })
         } 
     });
@@ -84,7 +88,7 @@ const createRatingWithStars = (rating) =>{
 }
 
 const createInfoMovieSelected = (cardData, rating) =>{
-    const cardHTML = `<div>
+    const cardHTML = `<div id="info-card">
     <aside>
         <img src="${cardData.movie_banner}" alt="">
     </aside>
@@ -119,6 +123,7 @@ const prevSubstraction = (iValue, data) =>{
     }
     return 4;
 }
+
 
 fetch('https://ghibliapi.herokuapp.com/films')
 .then(res => res.json())
