@@ -176,7 +176,7 @@ main {
             border-radius: $border-radius;
             padding: 10px 0 10px 10px;
             width: 80%;
-            @include display-flex-creator($direction: row, $justify-content: space-between, $align-items: start); 
+            @include display-flex-creator($direction: row, $justify-content: space-between, $align-items: stretch); 
             aside{
                 width: 60%;
                 img{
@@ -187,13 +187,20 @@ main {
             } 
             article{
                 width: 40%;
-                padding: 0 20px;
-                @include display-flex-creator($direction: column, $justify-content: center, $align-items: start); 
+                padding: 0 10px 0 20px;
+                @include display-flex-creator($direction: column, $justify-content: space-between, $align-items: start); 
                 div{
                     margin: 0 0 10px 0;
-                    padding: 10px 0;
+                    padding: 0;
                     width: 100%;
                     @include display-flex-creator($direction: row, $justify-content: space-between, $align-items: center);
+                    button{
+                        @include button();
+                        font-size: 30px;
+                    }
+                    button:hover{
+                        color: $hover-color;
+                    }
                 }
                 .film-information{
                     width: 100%;
@@ -206,7 +213,7 @@ main {
                 }
                 .rating-score{
                     width: 100%;
-                    padding-top: 30px;
+                    padding: 10px 0;
                 }
             } 
         }

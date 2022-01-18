@@ -4,8 +4,6 @@ const nextPageButton = document.getElementById("next-page-button");
 
 const infoMovieSelected = document.getElementById("info-movie-selected");
 const ratingScore = document.getElementById("rating-score");
-const closeModalButton = document.getElementById("close-modal-button");
-const infoCard = document.getElementById("info-card")
 
 
 var filmNumber = 0; // this var is for making the paging where I count the displayed movies and subtract them from the movies array
@@ -37,9 +35,12 @@ const showMoreInformation = (iValue, data) =>{
             fetch(`https://ghibliapi.herokuapp.com/films/${element.id}`)
             .then(res => res.json())
             .then((cardData)=>{
+                infoMovieSelected.style.display = "flex";
                 createInfoMovieSelected(cardData, createRatingWithStars(cardData.rt_score));
+                const closeModalButton = document.getElementById("close-modal-button");
                 closeModalButton.onclick = () =>{
-                    infoCard.classList.add("hide");
+                    infoMovieSelected.style.display = "none";
+                    console.log("hola")
                 }
             })
         } 
@@ -95,7 +96,9 @@ const createInfoMovieSelected = (cardData, rating) =>{
     <article>
         <div>
             <h2>${cardData.title}</h2>
-            <i class="fas fa-times" id="close-modal-button"></i>
+            <button>
+                <i class="fas fa-times" id="close-modal-button"></i>
+            </button>
         </div>      
         <h3><span>${cardData.original_title}</span> (${cardData.original_title_romanised})</h3>
         <p>${cardData.description}</p>
