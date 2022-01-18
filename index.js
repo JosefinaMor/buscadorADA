@@ -3,6 +3,8 @@ const prevPageButton = document.getElementById("prev-page-button");
 const nextPageButton = document.getElementById("next-page-button");
 
 const infoMovieSelected = document.getElementById("info-movie-selected");
+const ratingScore = document.getElementById("rating-score");
+
 
 var filmNumber = 0; // this var is for making the paging where I count the displayed movies and subtract them from the movies array
 
@@ -33,14 +35,54 @@ const showMoreInformation = (iValue, data) =>{
             fetch(`https://ghibliapi.herokuapp.com/films/${element.id}`)
             .then(res => res.json())
             .then((cardData)=>{
-                createInfoMovieSelected(cardData);
+                createInfoMovieSelected(cardData, createRatingWithStars(cardData.rt_score));
             })
         } 
     });
     return filmNumber;
 }
 
-const createInfoMovieSelected = (cardData) =>{
+const createRatingWithStars = (rating) =>{
+    var html = ``;
+    if(rating > 0 && rating < 21){
+        html = `<i class="fas fa-star"></i>
+        <i class="far fa-star"></i>
+        <i class="far fa-star"></i>
+        <i class="far fa-star"></i>
+        <i class="far fa-star"></i>`
+    }
+    if(rating > 21 && rating < 41){
+        html = `<i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="far fa-star"></i>
+        <i class="far fa-star"></i>
+        <i class="far fa-star"></i>`
+    }
+    if(rating > 41 && rating < 61){
+        html = `<i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="far fa-star"></i>
+        <i class="far fa-star"></i>`
+    }
+    if(rating > 61 && rating < 81){
+        html = `<i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="far fa-star"></i>`
+    }
+    if(rating > 81 && rating < 101){
+        html = `<i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i>`
+    }
+    return html;
+}
+
+const createInfoMovieSelected = (cardData, rating) =>{
     const cardHTML = `<div>
     <aside>
         <img src="${cardData.movie_banner}" alt="">
@@ -59,13 +101,7 @@ const createInfoMovieSelected = (cardData) =>{
                 <p>Running time: ${cardData.running_time}</p>
             </section>
         </div>
-        <aside class="rating-score">
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="far fa-star"></i>
-        </aside>`
+        <aside class="rating-score" id="rating-score">${rating}</aside>`
 
         infoMovieSelected.innerHTML = cardHTML;
 }
