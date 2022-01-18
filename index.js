@@ -4,6 +4,7 @@ const nextPageButton = document.getElementById("next-page-button");
 
 const infoMovieSelected = document.getElementById("info-movie-selected");
 const ratingScore = document.getElementById("rating-score");
+const closeModalButton = document.getElementById("close-modal-button");
 
 
 var filmNumber = 0; // this var is for making the paging where I count the displayed movies and subtract them from the movies array
@@ -88,7 +89,10 @@ const createInfoMovieSelected = (cardData, rating) =>{
         <img src="${cardData.movie_banner}" alt="">
     </aside>
     <article>
-        <h2>${cardData.title}</h2>
+        <div>
+            <h2>${cardData.title}</h2>
+            <i class="fas fa-times" id="close-modal-button"></i>
+        </div>      
         <h3><span>${cardData.original_title}</span> (${cardData.original_title_romanised})</h3>
         <p>${cardData.description}</p>
         <div class="film-information">
@@ -101,7 +105,8 @@ const createInfoMovieSelected = (cardData, rating) =>{
                 <p>Running time: ${cardData.running_time}</p>
             </section>
         </div>
-        <aside class="rating-score" id="rating-score">${rating}</aside>`
+        <aside class="rating-score" id="rating-score">${rating}</aside>
+    </article>`
 
         infoMovieSelected.innerHTML = cardHTML;
 }

@@ -153,7 +153,19 @@ main {
             }
         }
     }
+    h2{
+        margin: 0;
+    }
+    h3{
+        margin: 0;
+    }
+    p{
+        margin-bottom: 10px;
+    }
     .info-movie-selected{
+        position:fixed;
+        left: 0;
+        top: 0;
         z-index: 2;
         height: 100vh;
         background-color: #bccbd8c4;
@@ -175,17 +187,21 @@ main {
             } 
             article{
                 width: 40%;
-                padding: 20px 20px 0 20px;
-                @include display-flex-creator($direction: column, $justify-content: center, $align-items: stretch); 
-                h2{
+                padding: 0 20px;
+                @include display-flex-creator($direction: column, $justify-content: center, $align-items: start); 
+                div{
                     margin: 0 0 10px 0;
+                    padding: 10px 0;
+                    width: 100%;
+                    @include display-flex-creator($direction: row, $justify-content: space-between, $align-items: center);
                 }
                 .film-information{
                     width: 100%;
                     padding: 0;
-                    @include display-flex-creator($direction: row, $justify-content: space-between, $align-items: start); 
+                    @include display-flex-creator($direction: row, $justify-content: start, $align-items: start); 
                     section{
-                    @include display-flex-creator($direction: column, $justify-content: start, $align-items: start); 
+                        margin-right: 40px;
+                        @include display-flex-creator($direction: column, $justify-content: start, $align-items: start); 
                     }
                 }
                 .rating-score{
@@ -202,4 +218,8 @@ footer{
     @include display-flex-creator($direction: column);
     height: 90px;
     width: 100%;
+}
+
+.hide{
+    display: none;
 }
