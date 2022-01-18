@@ -35,11 +35,16 @@ const showMoreInformation = (iValue, data) =>{
             fetch(`https://ghibliapi.herokuapp.com/films/${element.id}`)
             .then(res => res.json())
             .then((cardData)=>{
+                const charactersArray = cardData.people;
                 infoMovieSelected.style.display = "flex";
                 createInfoMovieSelected(cardData, createRatingWithStars(cardData.rt_score));
                 const closeModalButton = document.getElementById("close-modal-button");
+                const showCharacters = document.getElementById("show-characters");
                 closeModalButton.onclick = () =>{
                     infoMovieSelected.style.display = "none";
+                }
+                showCharacters.onclick = () =>{
+
                 }
             })
         } 
@@ -47,14 +52,30 @@ const showMoreInformation = (iValue, data) =>{
     return filmNumber;
 }
 
-const createInfoExtra = (condition) =>{
+const fetchInformation = (arrayRout, condition) =>{ 
+    const html = arrayRout.reduce((acc, element)=>{
+        fetch(`${element}`)
+        .then(res => res.json())
+        .then((cardData)=>{
+            acc = acc + `${createInfoExtra("characters", cardData)}`;
+        })
+    })
+    
+}
+
+const createInfoExtra = (condition, element) =>{
     const html = ``;
     if(condition === "characters"){
-        html = ``;
+        html = `
+            <div class="characterCard">
+                <h3>Ashitaka</h3>
+                <p>${element.name} is a ${element.gender} with ${element. hair_color} hair and ${element.eye_color} eyes.</p>
+            </div>`;
     }
     if(condition === "species"){
         html = ``;
     }
+    return html;
 }
 
 const createRatingWithStars = (rating) =>{
@@ -135,11 +156,7 @@ const createInfoMovieSelected = (cardData, rating) =>{
 Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae quibusdam placeat labore possimus inventore minima commodi perspiciatis nobis id reprehenderit debitis porro hic cupiditate tempore incidunt rem, iusto dignissimos minus!
 <p></p>
     </div>
-    <div class="characterCard">
-        <h3>Ashitaka</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae quibusdam placeat labore possimus inventore minima commodi perspiciatis nobis id reprehenderit debitis porro hic cupiditate tempore incidunt rem, iusto dignissimos minus!
-        </p>
-    </div>
+    
     <div class="characterCard">
         <h3>Ashitaka</h3>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae quibusdam placeat labore possimus inventore minima commodi perspiciatis nobis id reprehenderit debitis porro hic cupiditate tempore incidunt rem, iusto dignissimos minus!
@@ -172,7 +189,6 @@ const prevSubstraction = (iValue, data) =>{
     }
     return 4;
 }
-
 
 fetch('https://ghibliapi.herokuapp.com/films')
 .then(res => res.json())
