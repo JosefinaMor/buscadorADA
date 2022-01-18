@@ -2,6 +2,8 @@ const moviePaging = document.getElementById("movie-paging");
 const prevPageButton = document.getElementById("prev-page-button");
 const nextPageButton = document.getElementById("next-page-button");
 
+const infoMovieSelected = document.getElementById("info-movie-selected");
+
 var filmNumber = 0; // this var is for making the paging where I count the displayed movies and subtract them from the movies array
 
 const createCardsInHTML = (iValue, data) =>{//I receive the displayed movies and subtract them from the movies array
@@ -9,7 +11,7 @@ const createCardsInHTML = (iValue, data) =>{//I receive the displayed movies and
     const cardsHTML = data.reduce((acc, element, index) =>{
         if (i === index){
             if (i < iValue+4 && i >= iValue){
-                acc = acc +`<div class="card" id="card${element.id}">
+                acc = acc +`<div class="card" id="${element.id}">
                                 <img src="${element.image}">
                                 <h4>${element.title}</h4>
                                 <span>${element.original_title}</span>
@@ -39,9 +41,9 @@ const showMoreInformation = (iValue, data) =>{
 }
 
 const createInfoMovieSelected = (cardData) =>{
-    moviePaging.innerHTML = `<div>
+    const cardHTML = `<div>
     <aside>
-        <img src="${cardData.image}" alt="">
+        <img src="${cardData.movie_banner}" alt="">
     </aside>
     <article>
         <h2>${cardData.title}</h2>
@@ -64,6 +66,8 @@ const createInfoMovieSelected = (cardData) =>{
             <i class="fas fa-star"></i>
             <i class="far fa-star"></i>
         </aside>`
+
+        infoMovieSelected.innerHTML = cardHTML;
 }
 
 const prevSubstraction = (iValue, data) =>{
