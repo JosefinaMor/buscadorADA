@@ -48,6 +48,16 @@ const showMoreInformation = (iValue, data) =>{
     return filmNumber;
 }
 
+const createInfoExtra = (condition) =>{
+    const html = ``;
+    if(condition === "characters"){
+
+    }
+    if(condition === "species"){
+        
+    }
+}
+
 const createRatingWithStars = (rating) =>{
     var html = ``;
     if(rating > 0 && rating < 21){
@@ -89,31 +99,41 @@ const createRatingWithStars = (rating) =>{
 }
 
 const createInfoMovieSelected = (cardData, rating) =>{
-    const cardHTML = `<div id="info-card">
-    <aside>
-        <img src="${cardData.movie_banner}" alt="">
-    </aside>
-    <article>
-        <div>
-            <h2>${cardData.title}</h2>
-            <button>
-                <i class="fas fa-times" id="close-modal-button"></i>
-            </button>
-        </div>      
-        <h3><span>${cardData.original_title}</span> (${cardData.original_title_romanised})</h3>
-        <p>${cardData.description}</p>
-        <div class="film-information">
-            <section class="info-director-producer">
-                <p>Director: ${cardData.director}</p>
-                <p>Producer: ${cardData.producer}</p>
-            </section>
-            <section class="info-release-running-time">
-                <p>Realise date: ${cardData.release_date}</p>
-                <p>Running time: ${cardData.running_time}</p>
-            </section>
-        </div>
-        <aside class="rating-score" id="rating-score">${rating}</aside>
-    </article>`
+    const cardHTML = `
+    <div id="info-card"> 
+        <section> 
+            <aside>
+                <img src="${cardData.movie_banner}" alt="">
+            </aside>
+            <article>
+                <div>
+                    <h2>${cardData.title}</h2>
+                    <button>
+                        <i class="fas fa-times" id="close-modal-button"></i>
+                    </button>
+                </div>      
+                <h3><span>${cardData.original_title}</span> (${cardData.original_title_romanised})</h3>
+                <p>${cardData.description}</p>
+                <div class="film-information">
+                    <section class="info-director-producer">
+                        <p>Director: ${cardData.director}</p>
+                        <p>Producer: ${cardData.producer}</p>
+                    </section>
+                    <section class="info-release-running-time">
+                        <p>Realise date: ${cardData.release_date}</p>
+                        <p>Running time: ${cardData.running_time}</p>
+                    </section>
+                </div>
+                <aside class="rating-score" id="rating-score">${rating}</aside>
+            </article>
+        </section>
+        <section class="extra-information" id="extra-information">
+            <hr>
+            <button id="show-characters"><span>Characters</span><i class="fas fa-chevron-down"></i></button>
+            <hr>
+            <button id="show-species"><span>Species</span><i class="fas fa-chevron-down"></i></button>
+        </section>
+    </div>`
 
         infoMovieSelected.innerHTML = cardHTML;
 }
