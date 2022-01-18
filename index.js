@@ -45,6 +45,7 @@ const showMoreInformation = (iValue, data) =>{
                     infoMovieSelected.style.display = "none";
                 }
                 showCharactersButton.onclick = () =>{
+                    console.log(charactersArray)
                     showCharacters.innerHTML = fetchInformation(charactersArray, "characters");
                 }
             })
@@ -55,11 +56,12 @@ const showMoreInformation = (iValue, data) =>{
 
 const fetchInformation = (arrayRout, condition) =>{ 
     const html = arrayRout.reduce((acc, element)=>{
-        fetch(`${element}`)
+        fetch(element)
         .then(res => res.json())
         .then((cardData)=>{
-            acc = acc + `${createInfoExtra("characters", cardData)}`;
+             createInfoExtra("characters", cardData);
         })
+        return acc;
     })
     return html;
 }
@@ -76,6 +78,7 @@ const createInfoExtra = (condition, element) =>{
     if(condition === "species"){
         html = ``;
     }
+    console.log(html)
     return html;
 }
 
