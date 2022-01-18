@@ -40,7 +40,6 @@ const showMoreInformation = (iValue, data) =>{
                 const closeModalButton = document.getElementById("close-modal-button");
                 closeModalButton.onclick = () =>{
                     infoMovieSelected.style.display = "none";
-                    console.log("hola")
                 }
             })
         } 
@@ -51,10 +50,10 @@ const showMoreInformation = (iValue, data) =>{
 const createInfoExtra = (condition) =>{
     const html = ``;
     if(condition === "characters"){
-
+        html = ``;
     }
     if(condition === "species"){
-        
+        html = ``;
     }
 }
 
@@ -130,6 +129,33 @@ const createInfoMovieSelected = (cardData, rating) =>{
         <section class="extra-information" id="extra-information">
             <hr>
             <button id="show-characters"><span>Characters</span><i class="fas fa-chevron-down"></i></button>
+            <section class="characters">
+    <div class="characterCard">
+        <h3>Ashitaka</h3>
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae quibusdam placeat labore possimus inventore minima commodi perspiciatis nobis id reprehenderit debitis porro hic cupiditate tempore incidunt rem, iusto dignissimos minus!
+<p></p>
+    </div>
+    <div class="characterCard">
+        <h3>Ashitaka</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae quibusdam placeat labore possimus inventore minima commodi perspiciatis nobis id reprehenderit debitis porro hic cupiditate tempore incidunt rem, iusto dignissimos minus!
+        </p>
+    </div>
+    <div class="characterCard">
+        <h3>Ashitaka</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae quibusdam placeat labore possimus inventore minima commodi perspiciatis nobis id reprehenderit debitis porro hic cupiditate tempore incidunt rem, iusto dignissimos minus!
+        </p>
+    </div>
+    <div class="characterCard">
+        <h3>Ashitaka</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae quibusdam placeat labore possimus inventore minima commodi perspiciatis nobis id reprehenderit debitis porro hic cupiditate tempore incidunt rem, iusto dignissimos minus!
+        </p>
+    </div> 
+    <div class="characterCard">
+        <h3>Ashitaka</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae quibusdam placeat labore possimus inventore minima commodi perspiciatis nobis id reprehenderit debitis porro hic cupiditate tempore incidunt rem, iusto dignissimos minus!
+        </p>
+    </div>
+</section>
             <hr>
             <button id="show-species"><span>Species</span><i class="fas fa-chevron-down"></i></button>
         </section>

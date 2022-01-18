@@ -240,10 +240,29 @@ main {
                 button:hover{
                     background-color: $hover-color;
                 }
+                .characters{
+                    background-color: yellowgreen;
+                    padding: 10px;
+                    @include display-flex-creator($direction: row, $justify-content: space-between, $align-items: center);
+                    .characterCard{
+                        color: $typography-dark-color;
+                        h3{
+                            margin: 0;
+                        }
+                        border-radius: $border-radius;  
+                        background-color: yellow;
+                        width: 15%;
+                        padding: 10px;
+                        @include display-flex-creator($direction: column, $justify-content: center, $align-items: center);
+                        text-align: center;
+                    }
+                }
+                
             } 
         }
     }
 }
+
 footer{
     background-color: $primary-color;
     color: $typography-light-color;

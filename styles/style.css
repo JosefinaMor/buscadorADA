@@ -301,6 +301,29 @@ main .info-movie-selected div .extra-information button span {
 main .info-movie-selected div .extra-information button:hover {
   background-color: #8c9caf;
 }
+main .info-movie-selected div .extra-information .characters {
+  background-color: yellowgreen;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+main .info-movie-selected div .extra-information .characters .characterCard {
+  color: #000000;
+  border-radius: 10px;
+  background-color: yellow;
+  width: 15%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+main .info-movie-selected div .extra-information .characters .characterCard h3 {
+  margin: 0;
+}
 
 footer {
   background-color: #3E4658;
