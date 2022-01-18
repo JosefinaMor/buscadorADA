@@ -28,17 +28,39 @@ const showMoreInformation = (iValue, data) =>{
     const cards = document.querySelectorAll(".card");
     cards.forEach((element)=>{
         element.onclick = () =>{
-            fetch(`https://ghibliapi.herokuapp.com/films/${element.id}`)
-            .then(res => res.json())
-            .then((data)=>{
-                
-            })
+            
         } 
     });
     return filmNumber;
 }
 
-const createMoreInformationCard
+const createInfoMovieSelected = (cardData) =>{
+    moviePaging.innerHTML = `<div>
+    <aside>
+        <img src="${cardData.image}" alt="">
+    </aside>
+    <article>
+        <h2>${cardData.title}</h2>
+        <h3><span>${cardData.original_title}</span> (${cardData.original_title_romanised})</h3>
+        <p>${cardData.description}</p>
+        <div class="film-information">
+            <section class="info-director-producer">
+                <p>Director: ${cardData.director}</p>
+                <p>Producer: ${cardData.producer}</p>
+            </section>
+            <section class="info-release-running-time">
+                <p>Realise date: ${cardData.release_date}</p>
+                <p>Running time: ${cardData.running_time}</p>
+            </section>
+        </div>
+        <aside class="rating-score">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="far fa-star"></i>
+        </aside>`
+}
 
 const prevSubstraction = (iValue, data) =>{
     if (iValue > 4){
