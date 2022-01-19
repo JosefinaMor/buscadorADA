@@ -45,7 +45,8 @@ const showMoreInformation = (iValue, data) =>{
                     infoMovieSelected.style.display = "none";
                 }
                 showCharactersButton.onclick = () =>{
-                    console.log(charactersArray)
+                    console.log(`"holis"+ ${fetchInformation(charactersArray, "characters")}`)
+
                     showCharacters.innerHTML = fetchInformation(charactersArray, "characters");
                 }
             })
@@ -56,16 +57,16 @@ const showMoreInformation = (iValue, data) =>{
 
 const fetchInformation = (arrayRout, condition) =>{ 
     const html = arrayRout.reduce((acc, element)=>{
-        console.log(element)
         fetch(element)
         .then(res => res.json())
         .then((cardData)=>{
-            var html = ``;
-            html = html + `${createInfoExtra("characters", cardData)}`;
-            console.log(html)
+            acc = acc + `${createInfoExtra("characters", cardData)}`;
+           // console.log(createInfoExtra("characters", cardData))
+           // console.log(cardData)
+           // console.log(acc)
         })
         return acc;
-    })
+    }, "")
     return html;
 }
 
@@ -158,11 +159,11 @@ const createInfoMovieSelected = (cardData, rating) =>{
             <button id="show-characters-button"><span>Characters</span><i class="fas fa-chevron-down"></i></button>
             <section class="characters"></section>
             <hr>
-            <button id="show-species"><span>Species</span><i class="fas fa-chevron-down"></i></button>
+            <button id="show-species-button"><span>Species</span><i class="fas fa-chevron-down"></i></button>
+            <section class="species"></section>
         </section>
     </div>`
-
-        infoMovieSelected.innerHTML = cardHTML;
+    infoMovieSelected.innerHTML = cardHTML;
 }
 
 const prevSubstraction = (iValue, data) =>{
