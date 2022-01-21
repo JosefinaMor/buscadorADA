@@ -179,10 +179,11 @@ const prevSubstraction = (iValue, data) =>{
 }
 
 const searchByParameter = (param) =>{
+    var hola = []
     fetch(`https://ghibliapi.herokuapp.com/films/?title=${param}`)
     .then(res => res.json())
     .then((data)=>{
-        console.log(data)
+        showMoreInformation(0, data);
     })
 }
 
@@ -192,8 +193,7 @@ fetch('https://ghibliapi.herokuapp.com/films')
     console.log(data)
     filmNumber = showMoreInformation(0, data);
     searchButton.onclick = () =>{
-        console.log(queryInput.value)
-        searchByParameter(queryInput.value);
+         searchByParameter(queryInput.value);
     }
     prevPageButton.onclick = () =>{
         filmNumber = prevSubstraction(filmNumber, data);
