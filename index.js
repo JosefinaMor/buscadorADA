@@ -5,6 +5,9 @@ const nextPageButton = document.getElementById("next-page-button");
 const infoMovieSelected = document.getElementById("info-movie-selected");
 const ratingScore = document.getElementById("rating-score");
 
+const queryInput = document.getElementById("search-input");
+const searchButton = document.getElementById("search-button");
+
 
 var filmNumber = 0; // this var is for making the paging where I count the displayed movies and subtract them from the movies array
 
@@ -66,7 +69,7 @@ const fetchInformation = (arrayRout, condition) =>{
            // console.log(acc)
         })
         return acc;
-    }, "")
+    }, ``)
     return html;
 }
 
@@ -175,11 +178,23 @@ const prevSubstraction = (iValue, data) =>{
     return 4;
 }
 
+const searchByParameter = (param) =>{
+    fetch(`https://ghibliapi.herokuapp.com/films/?title=${param}`)
+    .then(res => res.json())
+    .then((data)=>{
+        console.log(data)
+    })
+}
+
 fetch('https://ghibliapi.herokuapp.com/films')
 .then(res => res.json())
 .then((data)=>{
     console.log(data)
     filmNumber = showMoreInformation(0, data);
+    searchButton.onclick = () =>{
+        console.log(queryInput.value)
+        searchByParameter(queryInput.value);
+    }
     prevPageButton.onclick = () =>{
         filmNumber = prevSubstraction(filmNumber, data);
     }
