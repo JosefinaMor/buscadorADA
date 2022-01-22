@@ -82,5 +82,22 @@
 }
 
 @media (max-width: 600px){
-    
+    .info-movie-selected{
+        div{ 
+            section{
+                @include display-flex-creator($direction: column, $justify-content: space-between, $align-items: center);
+                aside{
+                    width: 100%;
+                } 
+                article{
+                    @include box-parameter($margin: 0, $padding: 10px, $width: 90%);
+                    
+                    
+                }
+            }
+            .extra-information{
+                display: none;
+            }
+        }
+    }
 }
