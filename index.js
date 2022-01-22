@@ -29,6 +29,8 @@ const createCardsInHTML = (iValue, data) =>{//I receive the displayed movies and
     moviePaging.innerHTML = cardsHTML;
     return i;
 }
+const num = [{num:1},{num:1},{num:1}];
+console.log("num" + num.length)
 
 const showMoreInformation = (iValue, data) =>{
     if (data === []){
@@ -174,12 +176,19 @@ const createInfoMovieSelected = (cardData, rating) =>{
 }
 
 const prevSubstraction = (iValue, data) =>{
-    if (iValue > 4){
+    if (iValue > 5){
         iValue = iValue - 8;
         const pageValue = showMoreInformation(iValue, data);
         return pageValue;
     }
     return 4;
+}
+const nextPageOperation = (iValue, data) =>{
+    if (iValue < data.length){
+        const pageValue = showMoreInformation(iValue, data);
+        return pageValue;  
+    }
+    return data.length - 3;
 }
 
 const searchByParameter = (param) =>{ //puedo buscar por parametro pero se me complica a la hora de utilizar una sola palabra que me busque opciones
@@ -211,7 +220,7 @@ fetch('https://ghibliapi.herokuapp.com/films')
         filmNumber = prevSubstraction(filmNumber, data);
     }
     nextPageButton.onclick = () =>{
-        filmNumber = showMoreInformation(filmNumber, data);
+        filmNumber = nextPageOperation(filmNumber, data);
     } 
     
 })
