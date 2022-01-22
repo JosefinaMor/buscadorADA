@@ -195,7 +195,6 @@ const pageNumbering = (data) =>{
 
 const prevSubstraction = (iValue, data) =>{
     const lastPage = (data.length +1) - iValue;
-    
     if (iValue > 4){
         if(lastPage < 4){
             //console.log(lastPage)
