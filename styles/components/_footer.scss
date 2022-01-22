@@ -1,8 +1,6 @@
 
 footer{
-    background-color: $primary-color;
-    color: $typography-light-color;
+    @include card-especification($border-radius: 0, $padding: 0, $width:100%);
     @include display-flex-creator($direction: column);
     height: 90px;
-    width: 100%;
 }

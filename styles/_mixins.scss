@@ -40,3 +40,7 @@
     padding: $padding;
     width: $width;
 }
+@mixin position($position: absolute, $z-index: 1){  
+    position: absolute;
+    z-index: 1;
+}

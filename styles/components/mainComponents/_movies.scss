@@ -10,10 +10,10 @@
             margin: 0 0 10px 0;
         }     
     }
-    section{
+    section{ 
+        @include display-flex-creator($direction: column, $justify-content: space-between, $align-items: space-between);
         width: 100%;
         height: inherit;
-        @include display-flex-creator($direction: column, $justify-content: space-between, $align-items: space-between);
         .search-section{
             @include box-parameter($margin: 0 0 30px 0);
             @include display-flex-creator($direction: row, $justify-content: end, $align-items: start);
@@ -35,6 +35,7 @@
             @include box-parameter($margin: 0);
             .card{
                 @include card-especification($back-color: $secundary-color, $color:$typography-dark-color, $padding: 20px, $width:20%);
+                transition: 5ms;
                 img{
                     @include img();
                 }
@@ -42,7 +43,7 @@
                 font-size: 20px; 
                 font-weight: $typography-english-bold;
                 } 
-                transition: 5ms;
+                
             }
             .card:hover{
                 transform: scale(1.05);
@@ -64,6 +65,7 @@
             @include box-parameter($margin: 30px 0 0 0);   
             button{
                 @include button($back-color: $primary-color);
+                transition: 2ms;
             }
             button:hover{
                 background-color: $hover-color;
