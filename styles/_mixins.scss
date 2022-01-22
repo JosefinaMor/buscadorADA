@@ -13,3 +13,18 @@
     color: $color;
     border: none;
 }
+@mixin input(){
+    margin-right: 10px;
+    padding: 0 10px;
+    height: 40px;
+    width: 60%;
+    border-radius: $border-radius;
+    background-color: #ffffff;
+    border: none;
+}
+@mixin img($opacity: 100%, $margin-botton: 10px, $width: 100%, $border-radius: $border-radius){
+    opacity: $opacity;
+    margin-bottom: $margin-botton;
+    width: $width;
+    border-radius: $border-radius;
+}

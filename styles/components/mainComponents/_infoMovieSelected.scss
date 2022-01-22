@@ -16,9 +16,7 @@
         aside{
             width: 60%;
             img{
-                width: 100%;
-                opacity: 100%;
-                border-radius: $border-radius;
+                @include img($opacity: 100%, $margin-botton: 0, $width: 100%, $border-radius: $border-radius);
             }
         } 
         article{

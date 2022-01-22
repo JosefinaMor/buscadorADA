@@ -12,11 +12,7 @@ span {
   font-weight: 100;
 }
 
-h2 {
-  margin: 0;
-}
-
-h3 {
+h2, h3, h4 {
   margin: 0;
 }
 
@@ -39,8 +35,10 @@ section {
   align-items: start;
 }
 section img {
-  width: 100%;
   opacity: 50%;
+  margin-bottom: 0;
+  width: 100%;
+  border-radius: 0;
 }
 section .start-button {
   height: 40px;
@@ -151,8 +149,9 @@ section aside {
 }
 .movies section .movie-paging .card img {
   opacity: 100%;
-  border-radius: 10px;
   margin-bottom: 10px;
+  width: 100%;
+  border-radius: 10px;
 }
 .movies section .movie-paging .card h4 {
   margin: 0;
@@ -238,8 +237,9 @@ section aside {
   width: 60%;
 }
 .info-movie-selected div aside img {
-  width: 100%;
   opacity: 100%;
+  margin-bottom: 0;
+  width: 100%;
   border-radius: 10px;
 }
 .info-movie-selected div article {
