@@ -28,17 +28,27 @@ header img {
   height: 600px;
 }
 
+@media (max-width: 600px) {
+  header img {
+    top: 0px;
+    left: 30px;
+    height: 300px;
+  }
+}
 section {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: start;
 }
-section img {
+section .desktop-photo {
   opacity: 50%;
   margin-bottom: 0;
   width: 100%;
   border-radius: 0;
+}
+section .mobile-photo {
+  display: none;
 }
 section .start-button {
   height: 40px;
@@ -71,6 +81,19 @@ section aside {
   width: 10%;
 }
 
+@media (max-width: 600px) {
+  section .desktop-photo {
+    display: none;
+  }
+  section .mobile-photo {
+    display: flex;
+    height: 100vh;
+    opacity: 50%;
+    margin-bottom: 0;
+    width: 100%;
+    border-radius: 0;
+  }
+}
 .movies {
   margin: 0;
   padding: 80px 30px;
@@ -222,8 +245,8 @@ section aside {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  position: absolute;
-  z-index: 1;
+  position: fixed;
+  z-index: 2;
   left: 0;
   top: 0;
   height: 100vh;
@@ -251,12 +274,12 @@ section aside {
 }
 .info-movie-selected div article {
   margin: 0;
-  padding: 0 10px 0 20px;
+  padding: 0 0 0 20px;
   width: 40%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: start;
+  align-items: space-between;
 }
 .info-movie-selected div article div {
   margin: 0 0 10px 0;

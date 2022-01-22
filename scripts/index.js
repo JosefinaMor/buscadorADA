@@ -55,8 +55,6 @@ const showMoreInformation = (iValue, data) =>{
                     infoMovieSelected.style.display = "none";
                 }
                 showCharactersButton.onclick = () =>{
-                    console.log(`"holis"+ ${fetchInformation(charactersArray, "characters")}`)
-
                     showCharacters.innerHTML = fetchInformation(charactersArray, "characters");
                 }
             })
@@ -86,7 +84,7 @@ const createInfoExtra = (condition, element) =>{
     if(condition === "characters"){
         html = `
             <div class="characterCard">
-                <h3>Ashitaka</h3>
+                <h3>${element.name}</h3>
                 <p>${element.name} is a ${element.gender} with ${element. hair_color} hair and ${element.eye_color} eyes.</p>
             </div>`;
     }
@@ -179,29 +177,26 @@ const createInfoMovieSelected = (cardData, rating) =>{
 
 const pageNumbering = (data) =>{
     var html = ``;
-    for(i=1; i <= (Math.ceil(data.length/4)); i++){
+    for(i=0; i <= (Math.ceil(data.length/4)); i++){
         html = html + `
-        <option value="${i * 4}" class="page">${i}</option>
+        <option value="${i * 4}">${i}</option>
         `
-        const page = document.querySelectorAll(`.page`);
-        page.onblur = () =>{
-            const pageValue = showMoreInformation(page.value, data);
-            console.log("hola")
-            return pageValue
-        }
     }
     pageSelect.innerHTML = html;
+}
+
+const changePageWithSelect = (data) =>{
+    const pageValue = (pageSelect.value);
+    const page = showMoreInformation(pageValue, data);
+    return page;
 }
 
 const prevSubstraction = (iValue, data) =>{
     const lastPage = (data.length +1) - iValue;
     if (iValue > 4){
         if(lastPage < 4){
-            //console.log(lastPage)
-            //console.log(iValue)
             iValue = iValue - (4 + lastPage);
             const pageValue = showMoreInformation(iValue, data);
-            console.log(pageValue)
             return pageValue;  
         } else {
             iValue = iValue - 8;
@@ -212,10 +207,10 @@ const prevSubstraction = (iValue, data) =>{
     }
     return 4;
 }
+
 const nextPageOperation = (iValue, data) =>{
     if (iValue < data.length){
         const pageValue = showMoreInformation(iValue, data);
-        console.log(pageValue)
         return pageValue;  
     }
     return data.length - 1;
@@ -242,13 +237,15 @@ fetch('https://ghibliapi.herokuapp.com/films')
 .then((data)=>{
     console.log(data)
     filmNumber = showMoreInformation(0, data);
-    filmNumber = pageNumbering(data);
+    pageNumbering(data);
+    pageSelect.onblur = () =>{
+        filmNumber = changePageWithSelect(data);
+    }
     searchButton.onclick = () =>{
          searchByParameter(queryInput.value);
          queryInput.value = "search by film´s name";
     }
     firstPage.onclick = () =>{
-        console.log("first")
         filmNumber = showMoreInformation(0, data);
     }
     prevPageButton.onclick = () =>{
@@ -260,6 +257,5 @@ fetch('https://ghibliapi.herokuapp.com/films')
     } 
     lastPage.onclick = () =>{
         filmNumber = nextPageOperation((data.length - 1), data);
-        console.log("last")
     }    
 })

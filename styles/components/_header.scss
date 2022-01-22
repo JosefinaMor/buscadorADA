@@ -7,3 +7,12 @@ header {
         height: 600px;
     }
 }
+@media (max-width: 600px){
+    header {
+        img{
+            top: 0px;
+            left: 30px;
+            height: 300px;
+        }
+    }
+}

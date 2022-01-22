@@ -1,5 +1,4 @@
 .info-movie-selected{
-    
     @include display-flex-creator($direction: row, $justify-content: center, $align-items: center);
     @include position($position: fixed, $z-index: 2);
     left: 0;
@@ -16,8 +15,8 @@
             }
         } 
         article{
-            @include box-parameter($margin: 0, $padding: 0 10px 0 20px, $width: 40%);
-            @include display-flex-creator($direction: column, $justify-content: space-between, $align-items: start); 
+            @include box-parameter($margin: 0, $padding: 0 0 0 20px, $width: 40%);
+            @include display-flex-creator($direction: column, $justify-content: space-between, $align-items: space-between); 
             div{
                 @include box-parameter();
                 @include display-flex-creator($direction: row, $justify-content: space-between, $align-items: center);
