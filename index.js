@@ -1,6 +1,8 @@
 const moviePaging = document.getElementById("movie-paging");
+const firstPage = document.getElementById("first-page");
 const prevPageButton = document.getElementById("prev-page-button");
 const nextPageButton = document.getElementById("next-page-button");
+const lastPage = document.getElementById("last-page");
 
 const infoMovieSelected = document.getElementById("info-movie-selected");
 const ratingScore = document.getElementById("rating-score");
@@ -216,11 +218,18 @@ fetch('https://ghibliapi.herokuapp.com/films')
          searchByParameter(queryInput.value);
          queryInput.value = "search by film´s name";
     }
+    firstPage.onclick = () =>{
+        console.log("first")
+        filmNumber = prevSubstraction(1, data);
+    }
     prevPageButton.onclick = () =>{
         filmNumber = prevSubstraction(filmNumber, data);
     }
     nextPageButton.onclick = () =>{
         filmNumber = nextPageOperation(filmNumber, data);
     } 
-    
+    lastPage.onclick = () =>{
+        filmNumber = nextPageOperation((data.length - 1), data);
+        console.log("last")
+    }    
 })
