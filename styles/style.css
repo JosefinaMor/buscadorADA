@@ -1,15 +1,3 @@
-h2 {
-  margin: 0;
-}
-
-h3 {
-  margin: 0;
-}
-
-p {
-  margin-bottom: 10px;
-}
-
 body {
   font-family: "Lato", sans-serif;
   font-weight: "300";
@@ -24,6 +12,18 @@ span {
   font-weight: 100;
 }
 
+h2 {
+  margin: 0;
+}
+
+h3 {
+  margin: 0;
+}
+
+p {
+  margin-bottom: 10px;
+}
+
 header img {
   position: absolute;
   top: -80px;
@@ -32,17 +32,17 @@ header img {
   height: 600px;
 }
 
-main section {
+section {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: start;
 }
-main section img {
+section img {
   width: 100%;
   opacity: 50%;
 }
-main section .start-button {
+section .start-button {
   height: 40px;
   width: 60px;
   display: flex;
@@ -60,19 +60,20 @@ main section .start-button {
   z-index: 1;
   transition: 5ms;
 }
-main section .start-button .position-down {
+section .start-button .position-down {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: end;
 }
-main section .start-button:hover {
+section .start-button:hover {
   transform: scale(1.3);
 }
-main section aside {
+section aside {
   width: 10%;
 }
-main .movies {
+
+.movies {
   padding: 80px 40px;
   height: 70vh;
   display: flex;
@@ -80,18 +81,18 @@ main .movies {
   justify-content: space-between;
   align-items: start;
 }
-main .movies aside {
+.movies aside {
   display: flex;
   flex-direction: column;
   justify-content: end;
   align-items: end;
   margin-right: 30px;
 }
-main .movies aside h3 {
+.movies aside h3 {
   font-size: 30px;
   margin: 0 0 10px 0;
 }
-main .movies section {
+.movies section {
   width: 100%;
   height: inherit;
   display: flex;
@@ -99,7 +100,7 @@ main .movies section {
   justify-content: space-between;
   align-items: space-between;
 }
-main .movies section .search-section {
+.movies section .search-section {
   margin: 0 0 30px 0;
   width: 100%;
   display: flex;
@@ -107,7 +108,7 @@ main .movies section .search-section {
   justify-content: end;
   align-items: start;
 }
-main .movies section .search-section input {
+.movies section .search-section input {
   margin-right: 10px;
   padding: 0 10px;
   height: 40px;
@@ -116,7 +117,7 @@ main .movies section .search-section input {
   background-color: #ffffff;
   border: none;
 }
-main .movies section .search-section button {
+.movies section .search-section button {
   height: 40px;
   width: 60px;
   display: flex;
@@ -128,41 +129,41 @@ main .movies section .search-section button {
   color: #F2F2F2;
   border: none;
 }
-main .movies section .search-section button i {
+.movies section .search-section button i {
   font-size: 15px;
 }
-main .movies section .search-section button:hover {
+.movies section .search-section button:hover {
   background-color: #8c9caf;
 }
-main .movies section .movie-paging {
+.movies section .movie-paging {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: stretch;
   width: 100%;
 }
-main .movies section .movie-paging .card {
+.movies section .movie-paging .card {
   background-color: #8594A6;
   border-radius: 10px;
   padding: 20px;
   width: 20%;
   transition: 5ms;
 }
-main .movies section .movie-paging .card img {
+.movies section .movie-paging .card img {
   opacity: 100%;
   border-radius: 10px;
   margin-bottom: 10px;
 }
-main .movies section .movie-paging .card h4 {
+.movies section .movie-paging .card h4 {
   margin: 0;
   font-size: 20px;
   font-weight: 700;
 }
-main .movies section .movie-paging .card:hover {
+.movies section .movie-paging .card:hover {
   transform: scale(1.05);
   box-shadow: rgba(0, 0, 0, 0.2) 0px 7px 29px 0px;
 }
-main .movies section .movie-paging .not-found-message {
+.movies section .movie-paging .not-found-message {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -171,10 +172,10 @@ main .movies section .movie-paging .not-found-message {
   font-weight: 700;
   font-size: 20px;
 }
-main .movies section .movie-paging .not-found-message i {
+.movies section .movie-paging .not-found-message i {
   font-size: 40px;
 }
-main .movies section .prev-next-buttons {
+.movies section .prev-next-buttons {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -182,7 +183,7 @@ main .movies section .prev-next-buttons {
   margin: 30px 0 0 0;
   width: 100%;
 }
-main .movies section .prev-next-buttons button {
+.movies section .prev-next-buttons button {
   height: 40px;
   width: 60px;
   display: flex;
@@ -194,10 +195,10 @@ main .movies section .prev-next-buttons button {
   color: #F2F2F2;
   border: none;
 }
-main .movies section .prev-next-buttons button:hover {
+.movies section .prev-next-buttons button:hover {
   background-color: #8c9caf;
 }
-main .movies section .prev-next-buttons select {
+.movies section .prev-next-buttons select {
   height: 40px;
   width: 60px;
   display: flex;
@@ -209,7 +210,8 @@ main .movies section .prev-next-buttons select {
   color: #3E4658;
   border: none;
 }
-main .info-movie-selected {
+
+.info-movie-selected {
   position: fixed;
   left: 0;
   top: 0;
@@ -221,7 +223,7 @@ main .info-movie-selected {
   justify-content: center;
   align-items: center;
 }
-main .info-movie-selected div {
+.info-movie-selected div {
   background-color: #3E4658;
   color: #F2F2F2;
   border-radius: 10px;
@@ -232,15 +234,15 @@ main .info-movie-selected div {
   justify-content: center;
   align-items: center;
 }
-main .info-movie-selected div aside {
+.info-movie-selected div aside {
   width: 60%;
 }
-main .info-movie-selected div aside img {
+.info-movie-selected div aside img {
   width: 100%;
   opacity: 100%;
   border-radius: 10px;
 }
-main .info-movie-selected div article {
+.info-movie-selected div article {
   width: 40%;
   padding: 0 10px 0 20px;
   display: flex;
@@ -248,7 +250,7 @@ main .info-movie-selected div article {
   justify-content: space-between;
   align-items: start;
 }
-main .info-movie-selected div article div {
+.info-movie-selected div article div {
   margin: 0 0 10px 0;
   padding: 0;
   width: 100%;
@@ -257,7 +259,7 @@ main .info-movie-selected div article div {
   justify-content: space-between;
   align-items: center;
 }
-main .info-movie-selected div article div button {
+.info-movie-selected div article div button {
   height: 40px;
   width: 60px;
   display: flex;
@@ -270,10 +272,10 @@ main .info-movie-selected div article div button {
   border: none;
   font-size: 30px;
 }
-main .info-movie-selected div article div button:hover {
+.info-movie-selected div article div button:hover {
   color: #8c9caf;
 }
-main .info-movie-selected div article .film-information {
+.info-movie-selected div article .film-information {
   width: 100%;
   padding: 0;
   display: flex;
@@ -281,18 +283,18 @@ main .info-movie-selected div article .film-information {
   justify-content: start;
   align-items: start;
 }
-main .info-movie-selected div article .film-information section {
+.info-movie-selected div article .film-information section {
   margin-right: 40px;
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: start;
 }
-main .info-movie-selected div article .rating-score {
+.info-movie-selected div article .rating-score {
   width: 100%;
   padding: 10px 0;
 }
-main .info-movie-selected div .extra-information {
+.info-movie-selected div .extra-information {
   width: 100%;
   padding: 10px 10px 0 10px;
   display: flex;
@@ -300,13 +302,13 @@ main .info-movie-selected div .extra-information {
   justify-content: start;
   align-items: start;
 }
-main .info-movie-selected div .extra-information hr {
+.info-movie-selected div .extra-information hr {
   margin: 0;
   height: 1px;
   width: 100%;
   background-color: #BCCBD8;
 }
-main .info-movie-selected div .extra-information button {
+.info-movie-selected div .extra-information button {
   height: 40px;
   width: 60px;
   display: flex;
@@ -326,13 +328,13 @@ main .info-movie-selected div .extra-information button {
   align-items: start;
   font-size: 30px;
 }
-main .info-movie-selected div .extra-information button span {
+.info-movie-selected div .extra-information button span {
   font-weight: 700;
 }
-main .info-movie-selected div .extra-information button:hover {
+.info-movie-selected div .extra-information button:hover {
   background-color: #8c9caf;
 }
-main .info-movie-selected div .extra-information .characters {
+.info-movie-selected div .extra-information .characters {
   background-color: yellowgreen;
   padding: 10px;
   display: flex;
@@ -340,7 +342,7 @@ main .info-movie-selected div .extra-information .characters {
   justify-content: space-between;
   align-items: center;
 }
-main .info-movie-selected div .extra-information .characters .characterCard {
+.info-movie-selected div .extra-information .characters .characterCard {
   color: #000000;
   border-radius: 10px;
   background-color: yellow;
@@ -352,7 +354,7 @@ main .info-movie-selected div .extra-information .characters .characterCard {
   align-items: center;
   text-align: center;
 }
-main .info-movie-selected div .extra-information .characters .characterCard h3 {
+.info-movie-selected div .extra-information .characters .characterCard h3 {
   margin: 0;
 }
 
@@ -365,10 +367,6 @@ footer {
   align-items: center;
   height: 90px;
   width: 100%;
-}
-
-.hide {
-  display: none;
 }
 
 /*# sourceMappingURL=style.css.map */

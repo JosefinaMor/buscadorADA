@@ -1,0 +1,90 @@
+.movies{
+    padding: 80px 40px;
+    height: 70vh;
+    @include display-flex-creator($direction: row, $justify-content: space-between, $align-items: start); 
+    aside{
+        @include display-flex-creator($direction: column, $justify-content: end, $align-items: end); 
+        margin-right: 30px; 
+        h3{
+            font-size: 30px;
+            margin: 0 0 10px 0;
+        }     
+    }
+    section{
+        width: 100%;
+        height: inherit;
+        @include display-flex-creator($direction: column, $justify-content: space-between, $align-items: space-between);
+        .search-section{
+            margin: 0 0 30px 0;
+            width: 100%;
+            @include display-flex-creator($direction: row, $justify-content: end, $align-items: start);
+            input{
+                margin-right: 10px;
+                padding: 0 10px;
+                height: 40px;
+                width: 60%;
+                border-radius: $border-radius;
+                background-color: #ffffff;
+                border: none;
+            }
+            button{
+                @include button($back-color: $primary-color);
+                i{
+                    font-size: 15px;
+                }
+            }
+            button:hover{
+                background-color: $hover-color;
+            }
+        }
+        .movie-paging{
+            @include display-flex-creator($direction: row, $justify-content: space-between, $align-items: stretch);       
+            width: 100%;
+            .card{
+                background-color: $secundary-color;
+                border-radius: $border-radius;
+                padding: 20px;
+                width: 20%;
+                img{
+                    opacity: 100%;
+                    border-radius: $border-radius;
+                    margin-bottom: 10px;
+                }
+                h4{
+                margin: 0; 
+                font-size: 20px; 
+                font-weight: $typography-english-bold;
+                } 
+                transition: 5ms;
+            }
+            .card:hover{
+                transform: scale(1.05);
+                box-shadow: $box-shadow;
+
+            }
+            .not-found-message{
+                @include display-flex-creator($direction: column, $justify-content: center, $align-items: center);   
+                width: 100%;
+                font-weight: $typography-english-bold;
+                font-size: 20px;
+                i{
+                    font-size: 40px;
+                }
+            }
+        }
+        .prev-next-buttons{
+            @include display-flex-creator($direction: row, $justify-content: space-between, $align-items: center);   
+            margin: 30px 0 0 0;
+            width: 100%;    
+            button{
+                @include button($back-color: $primary-color);
+            }
+            button:hover{
+                background-color: $hover-color;
+            }
+            select{
+                @include button($back-color: #ffffff, $color: $primary-color);
+            }
+        }
+    }
+}

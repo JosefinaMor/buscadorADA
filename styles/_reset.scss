@@ -1,3 +1,15 @@
+body{
+    font-family: $typography-english-text;
+    font-weight: $typography-english-normal;
+    background-color: $backgorund-color;
+    margin: 0;
+    height: 100vh;
+}
+span{
+    font-size: 15px;
+    font-family: $typography-japanese-text;
+    font-weight: $typography-japanese-thin;
+}
 h2{
     margin: 0;
 }
