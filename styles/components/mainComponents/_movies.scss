@@ -82,7 +82,8 @@
 
 @media (max-width: 600px){
     .movies{
-        @include display-flex-creator($direction: column, $justify-content: space-between, $align-items: start); 
+        @include display-flex-creator($direction: column, $justify-content: space-between, $align-items: start);
+        height: 100%; 
         section{
             .search-section{
                 input{
@@ -90,11 +91,13 @@
                 }
             }
             .movie-paging{
-                @include display-flex-creator($direction: column, $justify-content: space-between, $align-items: center);       
+                @include display-flex-creator($direction: column, $justify-content: space-between, $align-items: space-between);       
                 .card{
                     @include card-especification($back-color: $secundary-color, $color:$typography-dark-color, $padding: 20px, $width:90%);
                     transition: 5ms;
+                    margin-bottom: 20px;
                     .mobile-card{
+                        display: flex;
                         @include img();
                     }
                     .desktop-card{

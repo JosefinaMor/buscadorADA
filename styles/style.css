@@ -252,6 +252,7 @@ section aside {
     flex-direction: column;
     justify-content: space-between;
     align-items: start;
+    height: 100%;
   }
   .movies section .search-section input {
     margin-right: 10px;
@@ -266,7 +267,7 @@ section aside {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
+    align-items: space-between;
   }
   .movies section .movie-paging .card {
     background-color: #8594A6;
@@ -275,8 +276,10 @@ section aside {
     padding: 20px;
     width: 90%;
     transition: 5ms;
+    margin-bottom: 20px;
   }
   .movies section .movie-paging .card .mobile-card {
+    display: flex;
     opacity: 100%;
     margin-bottom: 10px;
     width: 100%;
