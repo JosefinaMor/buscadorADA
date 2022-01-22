@@ -35,6 +35,9 @@ section{
             height: 100vh;
             @include img($opacity: 50%, $margin-botton: 0, $width: 100%, $border-radius: 0);
         }
+        aside{
+            width: 100%;
+        }
     }
 
 }

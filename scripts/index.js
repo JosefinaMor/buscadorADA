@@ -20,7 +20,8 @@ const createCardsInHTML = (iValue, data) =>{//I receive the displayed movies and
         if (i === index){
             if (i < iValue+4 && i >= iValue){
                 acc = acc +`<div class="card" id="${element.id}">
-                                <img src="${element.image}">
+                                <img src="${element.image}" aria-hidden="true" class="desktop-card">
+                                <img src="${element.movie_banner}" aria-hidden="true" class="mobile-card">
                                 <h4>${element.title}</h4>
                                 <span>${element.original_title}</span>
                             </div>` 

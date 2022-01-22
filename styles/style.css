@@ -93,6 +93,9 @@ section aside {
     width: 100%;
     border-radius: 0;
   }
+  section aside {
+    width: 100%;
+  }
 }
 .movies {
   margin: 0;
@@ -176,7 +179,10 @@ section aside {
   width: 20%;
   transition: 5ms;
 }
-.movies section .movie-paging .card img {
+.movies section .movie-paging .card .mobile-card {
+  display: none;
+}
+.movies section .movie-paging .card .desktop-card {
   opacity: 100%;
   margin-bottom: 10px;
   width: 100%;
@@ -240,6 +246,50 @@ section aside {
   border: none;
 }
 
+@media (max-width: 600px) {
+  .movies {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+  }
+  .movies section .search-section input {
+    margin-right: 10px;
+    padding: 0 10px;
+    height: 40px;
+    width: 100%;
+    border-radius: 10px;
+    background-color: #ffffff;
+    border: none;
+  }
+  .movies section .movie-paging {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .movies section .movie-paging .card {
+    background-color: #8594A6;
+    color: #000000;
+    border-radius: 10px;
+    padding: 20px;
+    width: 90%;
+    transition: 5ms;
+  }
+  .movies section .movie-paging .card .mobile-card {
+    opacity: 100%;
+    margin-bottom: 10px;
+    width: 100%;
+    border-radius: 10px;
+  }
+  .movies section .movie-paging .card .desktop-card {
+    display: none;
+  }
+  .movies section .movie-paging .card h4 {
+    font-size: 20px;
+    font-weight: 700;
+  }
+}
 .info-movie-selected {
   display: flex;
   flex-direction: row;
