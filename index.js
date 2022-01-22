@@ -99,39 +99,39 @@ const createInfoExtra = (condition, element) =>{
 const createRatingWithStars = (rating) =>{
     var html = ``;
     if(rating > 0 && rating < 21){
-        html = `<i class="fas fa-star"></i>
-        <i class="far fa-star"></i>
-        <i class="far fa-star"></i>
-        <i class="far fa-star"></i>
-        <i class="far fa-star"></i>`
+        html = `<i class="fas fa-star" aria-hidden="true"></i>
+        <i class="far fa-star" aria-hidden="true"></i>
+        <i class="far fa-star" aria-hidden="true"></i>
+        <i class="far fa-star" aria-hidden="true"></i>
+        <i class="far fa-star" aria-hidden="true"></i>`
     }
     if(rating > 21 && rating < 41){
-        html = `<i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="far fa-star"></i>
-        <i class="far fa-star"></i>
-        <i class="far fa-star"></i>`
+        html = `<i class="fas fa-star" aria-hidden="true"></i>
+        <i class="fas fa-star" aria-hidden="true"></i>
+        <i class="far fa-star" aria-hidden="true"></i>
+        <i class="far fa-star" aria-hidden="true"></i>
+        <i class="far fa-star" aria-hidden="true"></i>`
     }
     if(rating > 41 && rating < 61){
-        html = `<i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="far fa-star"></i>
-        <i class="far fa-star"></i>`
+        html = `<i class="fas fa-star" aria-hidden="true"></i>
+        <i class="fas fa-star" aria-hidden="true"></i>
+        <i class="fas fa-star" aria-hidden="true"></i>
+        <i class="far fa-star" aria-hidden="true"></i>
+        <i class="far fa-star" aria-hidden="true"></i>`
     }
     if(rating > 61 && rating < 81){
-        html = `<i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="far fa-star"></i>`
+        html = `<i class="fas fa-star" aria-hidden="true" ></i>
+        <i class="fas fa-star" aria-hidden="true"></i>
+        <i class="fas fa-star" aria-hidden="true"></i>
+        <i class="fas fa-star" aria-hidden="true"></i>
+        <i class="far fa-star" aria-hidden="true"></i>`
     }
     if(rating > 81 && rating < 101){
-        html = `<i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>`
+        html = `<i class="fas fa-star" aria-hidden="true"></i>
+        <i class="fas fa-star" aria-hidden="true"></i>
+        <i class="fas fa-star" aria-hidden="true"></i>
+        <i class="fas fa-star" aria-hidden="true"></i>
+        <i class="fas fa-star" aria-hidden="true"></i>`
     }
     return html;
 }
@@ -146,8 +146,8 @@ const createInfoMovieSelected = (cardData, rating) =>{
             <article>
                 <div>
                     <h2>${cardData.title}</h2>
-                    <button>
-                        <i class="fas fa-times" id="close-modal-button"></i>
+                    <button aria-label="close window">
+                        <i class="fas fa-times" id="close-modal-button" aria-hidden="true"></i>
                     </button>
                 </div>      
                 <h3><span>${cardData.original_title}</span> (${cardData.original_title_romanised})</h3>
@@ -167,10 +167,10 @@ const createInfoMovieSelected = (cardData, rating) =>{
         </section>
         <section class="extra-information" id="extra-information">
             <hr>
-            <button id="show-characters-button"><span>Characters</span><i class="fas fa-chevron-down"></i></button>
+            <button id="show-characters-button"><span>Characters</span><i class="fas fa-chevron-down" aria-hidden="true"></i></button>
             <section class="characters"></section>
             <hr>
-            <button id="show-species-button"><span>Species</span><i class="fas fa-chevron-down"></i></button>
+            <button id="show-species-button" ><span>Species</span><i class="fas fa-chevron-down" aria-hidden="true"></i></button>
             <section class="species"></section>
         </section>
     </div>`

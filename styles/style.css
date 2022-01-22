@@ -62,6 +62,7 @@ main section aside {
 }
 main .movies {
   padding: 80px 40px;
+  height: 70vh;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -79,10 +80,12 @@ main .movies aside h3 {
   margin: 0 0 10px 0;
 }
 main .movies section {
+  width: 100%;
+  height: inherit;
   display: flex;
   flex-direction: column;
-  justify-content: start;
-  align-items: start;
+  justify-content: space-between;
+  align-items: space-between;
 }
 main .movies section .search-section {
   margin: 0 0 30px 0;
@@ -124,6 +127,7 @@ main .movies section .movie-paging {
   flex-direction: row;
   justify-content: space-between;
   align-items: stretch;
+  width: 100%;
 }
 main .movies section .movie-paging .card {
   background-color: #8594A6;
@@ -145,6 +149,18 @@ main .movies section .movie-paging .card h4 {
 main .movies section .movie-paging .card:hover {
   transform: scale(1.05);
   box-shadow: rgba(0, 0, 0, 0.2) 0px 7px 29px 0px;
+}
+main .movies section .movie-paging .not-found-message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  font-weight: 700;
+  font-size: 20px;
+}
+main .movies section .movie-paging .not-found-message i {
+  font-size: 40px;
 }
 main .movies section .prev-next-buttons {
   display: flex;
@@ -168,6 +184,18 @@ main .movies section .prev-next-buttons button {
 }
 main .movies section .prev-next-buttons button:hover {
   background-color: #8c9caf;
+}
+main .movies section .prev-next-buttons select {
+  height: 40px;
+  width: 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  background-color: #ffffff;
+  color: #3E4658;
+  border: none;
 }
 main h2 {
   margin: 0;

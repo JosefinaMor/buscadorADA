@@ -9,8 +9,7 @@
         integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,700;1,300&family=Noto+Sans+JP:wght@100;700&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,700;1,300&family=Noto+Sans+JP:wght@100;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="./styles/style.css">
     <title>BuscadorADA</title>
@@ -18,13 +17,13 @@
 
 <body>
     <header>
-        <img src="./img/cdnlogo.com_studio-ghibli.svg" alt="studio ghibli logo">
+        <img src="./img/cdnlogo.com_studio-ghibli.svg" alt="studio ghibli logo" aria-hidden="true">
     </header>
 
     <main>
         <section>
-            <img src="./img/3948082.jpg" alt="Howl´s moving castle">
-            <a href="#films" class="start-button"><i class="fas fa-caret-down position-down"></i></a>
+            <img src="./img/3948082.jpg" alt="Howl´s moving castle" aria-label="Howl´s moving castle">
+            <a href="#films" class="start-button" aria-label="start searching films"><i class="fas fa-caret-down position-down" aria-hidden="true"></i></a>
         </section>
         <section class="movies">
             <aside>
@@ -34,15 +33,15 @@
             <section>
                 <div class="search-section">
                     <input type="text" value="search by film´s name" id="search-input">
-                    <button id="search-button"><i class="fas fa-search"></i></button>
+                    <button id="search-button" aria-label="search button"><i class="fas fa-search" aria-hidden="true"></i></button>
                 </div>
                 <div class="movie-paging" id="movie-paging"></div>
                 <div class="prev-next-buttons">
-                    <button id="first-page"><i class="fas fa-backward"></i></button>
-                    <button id="prev-page-button"><i class="fas fa-caret-left"></i></button>
-                    <select name="paging" id="page-select"></select>
-                    <button id="next-page-button"><i class="fas fa-caret-right"></i></button>
-                    <button id="last-page"><i class="fas fa-forward"></i></button>
+                    <button id="first-page" aria-label="first page"><i class="fas fa-backward" aria-hidden="true"></i></button>
+                    <button id="prev-page-button" aria-label="previous page"><i class="fas fa-caret-left" aria-hidden="true"></i></button>
+                    <select name="paging" id="page-select" aria-label="paging select"></select>
+                    <button id="next-page-button" aria-label="next page"><i class="fas fa-caret-right" aria-hidden="true"></i></button>
+                    <button id="last-page" aria-label="last page"><i class="fas fa-forward"aria-hidden="true"></i></button>
                 </div>
             </section>
         </section>

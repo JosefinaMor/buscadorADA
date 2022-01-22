@@ -81,6 +81,7 @@ main {
 
     .movies{
         padding: 80px 40px;
+        height: 70vh;
         @include display-flex-creator($direction: row, $justify-content: space-between, $align-items: start); 
         aside{
             @include display-flex-creator($direction: column, $justify-content: end, $align-items: end); 
@@ -91,7 +92,9 @@ main {
             }     
         }
         section{
-            @include display-flex-creator($direction: column, $justify-content: start, $align-items: start);
+            width: 100%;
+            height: inherit;
+            @include display-flex-creator($direction: column, $justify-content: space-between, $align-items: space-between);
             .search-section{
                 margin: 0 0 30px 0;
                 width: 100%;
@@ -117,6 +120,7 @@ main {
             }
             .movie-paging{
                 @include display-flex-creator($direction: row, $justify-content: space-between, $align-items: stretch);       
+                width: 100%;
                 .card{
                     background-color: $secundary-color;
                     border-radius: $border-radius;
@@ -139,6 +143,15 @@ main {
                     box-shadow: $box-shadow;
 
                 }
+                .not-found-message{
+                    @include display-flex-creator($direction: column, $justify-content: center, $align-items: center);   
+                    width: 100%;
+                    font-weight: $typography-english-bold;
+                    font-size: 20px;
+                    i{
+                        font-size: 40px;
+                    }
+                }
             }
             .prev-next-buttons{
                 @include display-flex-creator($direction: row, $justify-content: space-between, $align-items: center);   
@@ -149,6 +162,9 @@ main {
                 }
                 button:hover{
                     background-color: $hover-color;
+                }
+                select{
+                    @include button($back-color: #ffffff, $color: $primary-color);
                 }
             }
         }
