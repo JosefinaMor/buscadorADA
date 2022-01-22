@@ -31,6 +31,10 @@ const createCardsInHTML = (iValue, data) =>{//I receive the displayed movies and
 }
 
 const showMoreInformation = (iValue, data) =>{
+    if (data === []){
+        notFoundMessage();
+        console.log("data")
+    }
     const filmNumber = createCardsInHTML(iValue, data)
     const cards = document.querySelectorAll(".card");
     cards.forEach((element)=>{
@@ -178,13 +182,20 @@ const prevSubstraction = (iValue, data) =>{
     return 4;
 }
 
-const searchByParameter = (param) =>{
-    var hola = []
+const searchByParameter = (param) =>{ //puedo buscar por parametro pero se me complica a la hora de utilizar una sola palabra que me busque opciones
+    //nose si es porque la api no lo puede hacer o bueno solo busca por id  
     fetch(`https://ghibliapi.herokuapp.com/films/?title=${param}`)
     .then(res => res.json())
     .then((data)=>{
         showMoreInformation(0, data);
     })
+}
+
+const notFoundMessage = () =>{
+    moviePaging.innerHTML = `<div class="not-found-message">
+                                <i class="far fa-sad-cry"></i>
+                                <p>Sorry, but we can't find what you're looking for.</p>
+                            </div>`;
 }
 
 fetch('https://ghibliapi.herokuapp.com/films')
@@ -194,6 +205,7 @@ fetch('https://ghibliapi.herokuapp.com/films')
     filmNumber = showMoreInformation(0, data);
     searchButton.onclick = () =>{
          searchByParameter(queryInput.value);
+         queryInput.value = "search by film´s name";
     }
     prevPageButton.onclick = () =>{
         filmNumber = prevSubstraction(filmNumber, data);
