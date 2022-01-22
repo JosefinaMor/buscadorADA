@@ -1,6 +1,7 @@
 const moviePaging = document.getElementById("movie-paging");
 const firstPage = document.getElementById("first-page");
 const prevPageButton = document.getElementById("prev-page-button");
+const pageSelect = document.getElementById("page-select");
 const nextPageButton = document.getElementById("next-page-button");
 const lastPage = document.getElementById("last-page");
 
@@ -31,8 +32,6 @@ const createCardsInHTML = (iValue, data) =>{//I receive the displayed movies and
     moviePaging.innerHTML = cardsHTML;
     return i;
 }
-const num = [{num:1},{num:1},{num:1}];
-console.log("num" + num.length)
 
 const showMoreInformation = (iValue, data) =>{
     if (data === []){
@@ -61,7 +60,8 @@ const showMoreInformation = (iValue, data) =>{
                     showCharacters.innerHTML = fetchInformation(charactersArray, "characters");
                 }
             })
-        } 
+            
+        }
     });
     return filmNumber;
 }
@@ -177,20 +177,49 @@ const createInfoMovieSelected = (cardData, rating) =>{
     infoMovieSelected.innerHTML = cardHTML;
 }
 
+const pageNumbering = (data) =>{
+    var html = ``;
+    for(i=1; i <= (Math.ceil(data.length/4)); i++){
+        html = html + `
+        <option value="${i * 4}" class="page">${i}</option>
+        `
+        const page = document.querySelectorAll(`.page`);
+        page.onblur = () =>{
+            const pageValue = showMoreInformation(page.value, data);
+            console.log("hola")
+            return pageValue
+        }
+    }
+    pageSelect.innerHTML = html;
+}
+
 const prevSubstraction = (iValue, data) =>{
-    if (iValue > 5){
-        iValue = iValue - 8;
-        const pageValue = showMoreInformation(iValue, data);
-        return pageValue;
+    const lastPage = (data.length +1) - iValue;
+    
+    if (iValue > 4){
+        if(lastPage < 4){
+            //console.log(lastPage)
+            //console.log(iValue)
+            iValue = iValue - (4 + lastPage);
+            const pageValue = showMoreInformation(iValue, data);
+            console.log(pageValue)
+            return pageValue;  
+        } else {
+            iValue = iValue - 8;
+            const pageValue = showMoreInformation(iValue, data);
+            return pageValue;    
+        }
+            
     }
     return 4;
 }
 const nextPageOperation = (iValue, data) =>{
     if (iValue < data.length){
         const pageValue = showMoreInformation(iValue, data);
+        console.log(pageValue)
         return pageValue;  
     }
-    return data.length - 3;
+    return data.length - 1;
 }
 
 const searchByParameter = (param) =>{ //puedo buscar por parametro pero se me complica a la hora de utilizar una sola palabra que me busque opciones
@@ -214,13 +243,14 @@ fetch('https://ghibliapi.herokuapp.com/films')
 .then((data)=>{
     console.log(data)
     filmNumber = showMoreInformation(0, data);
+    filmNumber = pageNumbering(data);
     searchButton.onclick = () =>{
          searchByParameter(queryInput.value);
          queryInput.value = "search by film´s name";
     }
     firstPage.onclick = () =>{
         console.log("first")
-        filmNumber = prevSubstraction(1, data);
+        filmNumber = showMoreInformation(0, data);
     }
     prevPageButton.onclick = () =>{
         filmNumber = prevSubstraction(filmNumber, data);
