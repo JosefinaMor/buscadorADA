@@ -1,7 +1,7 @@
 .movies{
-    padding: 80px 40px;
-    height: 70vh;
+    @include box-parameter($margin: 0, $padding: 80px 30px, $width: auto);
     @include display-flex-creator($direction: row, $justify-content: space-between, $align-items: start); 
+    height: 70vh;
     aside{
         @include display-flex-creator($direction: column, $justify-content: end, $align-items: end); 
         margin-right: 30px; 
@@ -15,8 +15,7 @@
         height: inherit;
         @include display-flex-creator($direction: column, $justify-content: space-between, $align-items: space-between);
         .search-section{
-            margin: 0 0 30px 0;
-            width: 100%;
+            @include box-parameter($margin: 0 0 30px 0);
             @include display-flex-creator($direction: row, $justify-content: end, $align-items: start);
             input{
                 @include input();
@@ -33,12 +32,9 @@
         }
         .movie-paging{
             @include display-flex-creator($direction: row, $justify-content: space-between, $align-items: stretch);       
-            width: 100%;
+            @include box-parameter($margin: 0);
             .card{
-                background-color: $secundary-color;
-                border-radius: $border-radius;
-                padding: 20px;
-                width: 20%;
+                @include card-especification($back-color: $secundary-color, $color:$typography-dark-color, $padding: 20px, $width:20%);
                 img{
                     @include img();
                 }
@@ -64,9 +60,8 @@
             }
         }
         .prev-next-buttons{
-            @include display-flex-creator($direction: row, $justify-content: space-between, $align-items: center);   
-            margin: 30px 0 0 0;
-            width: 100%;    
+            @include display-flex-creator($direction: row, $justify-content: space-between, $align-items: center); 
+            @include box-parameter($margin: 30px 0 0 0);   
             button{
                 @include button($back-color: $primary-color);
             }
