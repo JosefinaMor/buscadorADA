@@ -254,6 +254,7 @@ fetch('https://ghibliapi.herokuapp.com/films')
     }
     prevPageButton.onclick = () =>{
         filmNumber = prevSubstraction(filmNumber, data);
+        Math.ceil(filmNumber/4);
     }
     nextPageButton.onclick = () =>{
         filmNumber = nextPageOperation(filmNumber, data);

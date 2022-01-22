@@ -1,35 +1,6 @@
-//variables
-$backgorund-color: #BCCBD8;
-$hover-color: #8c9caf;
-$secundary-color: #8594A6;
-$primary-color: #3E4658;
-$typography-dark-color: #000000;
-$typography-light-color: #F2F2F2;
-$typography-english-text: 'Lato', sans-serif;
-$typography-japanese-text: 'Noto Sans JP', sans-serif;
-$typography-english-thin: 100;
-$typography-english-normal: "300";
-$typography-english-bold: 700;
-$typography-japanese-thin: 100;
-$typography-japanese-bold: 700;
-$border-radius: 10px;
-$box-shadow: rgba(0, 0, 0, 0.2) 0px 7px 29px 0px;
-
-@mixin display-flex-creator($direction: row, $justify-content: center, $align-items: center) {
-    display: flex;
-    flex-direction: $direction;
-    justify-content: $justify-content;
-    align-items: $align-items;
-}
-@mixin button($back-color: transparent, $color: $typography-light-color){
-    height: 40px;
-    width: 60px;
-    @include display-flex-creator();
-    border-radius: $border-radius;
-    background-color: $back-color;
-    color: $color;
-    border: none;
-}
+@import "variables";
+@import "mixins";
+@import "reset";
 
 body{
     font-family: $typography-english-text;
@@ -168,15 +139,6 @@ main {
                 }
             }
         }
-    }
-    h2{
-        margin: 0;
-    }
-    h3{
-        margin: 0;
-    }
-    p{
-        margin-bottom: 10px;
     }
     .info-movie-selected{
         position:fixed;

@@ -1,3 +1,15 @@
+h2 {
+  margin: 0;
+}
+
+h3 {
+  margin: 0;
+}
+
+p {
+  margin-bottom: 10px;
+}
+
 body {
   font-family: "Lato", sans-serif;
   font-weight: "300";
@@ -196,15 +208,6 @@ main .movies section .prev-next-buttons select {
   background-color: #ffffff;
   color: #3E4658;
   border: none;
-}
-main h2 {
-  margin: 0;
-}
-main h3 {
-  margin: 0;
-}
-main p {
-  margin-bottom: 10px;
 }
 main .info-movie-selected {
   position: fixed;
