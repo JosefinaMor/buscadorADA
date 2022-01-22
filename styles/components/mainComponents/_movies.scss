@@ -19,13 +19,7 @@
             width: 100%;
             @include display-flex-creator($direction: row, $justify-content: end, $align-items: start);
             input{
-                margin-right: 10px;
-                padding: 0 10px;
-                height: 40px;
-                width: 60%;
-                border-radius: $border-radius;
-                background-color: #ffffff;
-                border: none;
+                @include input();
             }
             button{
                 @include button($back-color: $primary-color);
@@ -46,12 +40,9 @@
                 padding: 20px;
                 width: 20%;
                 img{
-                    opacity: 100%;
-                    border-radius: $border-radius;
-                    margin-bottom: 10px;
+                    @include img();
                 }
-                h4{
-                margin: 0; 
+                h4{ 
                 font-size: 20px; 
                 font-weight: $typography-english-bold;
                 } 

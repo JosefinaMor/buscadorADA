@@ -1,17 +1,14 @@
 .info-movie-selected{
+    
+    @include display-flex-creator($direction: row, $justify-content: center, $align-items: center);
     position:fixed;
     left: 0;
     top: 0;
     z-index: 2;
     height: 100vh;
-    background-color: #bccbd8c4;
-    @include display-flex-creator($direction: row, $justify-content: center, $align-items: center);
+    background-color: $light-background-color;
     div{  
-        background-color: $primary-color;
-        color: $typography-light-color;
-        border-radius: $border-radius;
-        padding: 10px;
-        width: 80%;
+        @include card-especification();
         @include display-flex-creator($direction: column, $justify-content: center, $align-items: center); 
         aside{
             width: 60%;
@@ -20,13 +17,10 @@
             }
         } 
         article{
-            width: 40%;
-            padding: 0 10px 0 20px;
+            @include box-parameter($margin: 0, $padding: 0 10px 0 20px, $width: 40%);
             @include display-flex-creator($direction: column, $justify-content: space-between, $align-items: start); 
             div{
-                margin: 0 0 10px 0;
-                padding: 0;
-                width: 100%;
+                @include box-parameter();
                 @include display-flex-creator($direction: row, $justify-content: space-between, $align-items: center);
                 button{
                     @include button();
@@ -37,58 +31,49 @@
                 }
             }
             .film-information{
-                width: 100%;
-                padding: 0;
+                @include box-parameter($margin: 0);
                 @include display-flex-creator($direction: row, $justify-content: start, $align-items: start); 
                 section{
-                    margin-right: 40px;
-                    @include display-flex-creator($direction: column, $justify-content: start, $align-items: start); 
+                    @include display-flex-creator($direction: column, $justify-content: start, $align-items: start);
+                    margin-right: 40px; 
                 }
             }
             .rating-score{
-                width: 100%;
-                padding: 10px 0;
+                @include box-parameter($margin: 0, $padding: 10px 0);
             }
         }
         .extra-information{
-            width: 100%;
-            padding: 10px 10px 0 10px;
+            @include box-parameter($margin: 0, $padding: 10px 10px 0 10px);
             @include display-flex-creator($direction: column, $justify-content: start, $align-items: start);
             hr{
-                margin: 0;
+                @include box-parameter($margin: 0);
                 height: 1px;
-                width: 100%;
                 background-color: $backgorund-color;
             }
             button{
                 @include button();
+                @include box-parameter($margin: 10px 0);
+                @include display-flex-creator($direction: row, $justify-content: space-between, $align-items: start);
+                height: auto;
+                font-size: 30px;
                 span{
                     font-weight: $typography-english-bold;
                 }
-                margin: 10px 0;
-                width: 100%;
-                height: auto;
-                @include display-flex-creator($direction: row, $justify-content: space-between, $align-items: start);
-                font-size: 30px;
             }
             button:hover{
                 background-color: $hover-color;
             }
             .characters{
+                @include display-flex-creator($direction: row, $justify-content: space-between, $align-items: center);
                 background-color: yellowgreen;
                 padding: 10px;
-                @include display-flex-creator($direction: row, $justify-content: space-between, $align-items: center);
                 .characterCard{
-                    color: $typography-dark-color;
+                    @include card-especification($back-color: yellow, $color:$typography-dark-color, $border-radius:$border-radius, $width:15%);
+                    @include display-flex-creator($direction: column, $justify-content: center, $align-items: center);
+                    text-align: center;
                     h3{
                         margin: 0;
                     }
-                    border-radius: $border-radius;  
-                    background-color: yellow;
-                    width: 15%;
-                    padding: 10px;
-                    @include display-flex-creator($direction: column, $justify-content: center, $align-items: center);
-                    text-align: center;
                 }
             }
             

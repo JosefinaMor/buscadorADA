@@ -28,3 +28,15 @@
     width: $width;
     border-radius: $border-radius;
 }
+@mixin card-especification($back-color: $primary-color, $color:$typography-light-color, $border-radius:$border-radius, $padding: 10px, $width:80%){
+    background-color: $primary-color;
+    color: $typography-light-color;
+    border-radius: $border-radius;
+    padding: 10px;
+    width: 80%;
+}
+@mixin box-parameter($margin: 0 0 10px 0, $padding: 0, $width: 100%){
+    margin: $margin;
+    padding: $padding;
+    width: $width;
+}
