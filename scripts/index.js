@@ -1,3 +1,4 @@
+//paging buttons 
 const moviePaging = document.getElementById("movie-paging");
 const firstPage = document.getElementById("first-page");
 const prevPageButton = document.getElementById("prev-page-button");
@@ -8,6 +9,7 @@ const lastPage = document.getElementById("last-page");
 const infoMovieSelected = document.getElementById("info-movie-selected");
 const ratingScore = document.getElementById("rating-score");
 
+//search section
 const queryInput = document.getElementById("search-input");
 const searchButton = document.getElementById("search-button");
 
@@ -34,10 +36,9 @@ const createCardsInHTML = (iValue, data) =>{//I receive the displayed movies and
     return i;
 }
 
-const showMoreInformation = (iValue, data) =>{
-    if (data === []){
+const showMoreInformation = (iValue, data) =>{// i create the cards and put de onclick function to show more informtion
+    if (data === undefined){
         notFoundMessage();
-        console.log("data")
     }
     const filmNumber = createCardsInHTML(iValue, data)
     const cards = document.querySelectorAll(".card");
@@ -70,17 +71,15 @@ const fetchInformation = (arrayRout, condition) =>{
         fetch(element)
         .then(res => res.json())
         .then((cardData)=>{
-            acc = acc + `${createInfoExtra("characters", cardData)}`;
-           // console.log(createInfoExtra("characters", cardData))
-           // console.log(cardData)
-           // console.log(acc)
+            acc = acc + `${createInfoExtra("characters", cardData)}`; //no me funciono lo de crear mayor informacion y nose si ir por aca es el mejor camino,
+            //osea ACC se me va a ir reseteando no??. Esta es la parte de mostrar los caracteres 
         })
         return acc;
     }, ``)
     return html;
 }
 
-const createInfoExtra = (condition, element) =>{
+const createInfoExtra = (condition, element) =>{// esta es la card que deberia crearse para mostrar la section de characters
     var html = ``;
     if(condition === "characters"){
         html = `
@@ -95,37 +94,37 @@ const createInfoExtra = (condition, element) =>{
     return html;
 }
 
-const createRatingWithStars = (rating) =>{
+const createRatingWithStars = (rating) =>{// it translate the ranking y number of stars
     var html = ``;
-    if(rating > 0 && rating < 21){
+    if(rating > 0 && rating < 50){
         html = `<i class="fas fa-star" aria-hidden="true"></i>
         <i class="far fa-star" aria-hidden="true"></i>
         <i class="far fa-star" aria-hidden="true"></i>
         <i class="far fa-star" aria-hidden="true"></i>
         <i class="far fa-star" aria-hidden="true"></i>`
     }
-    if(rating > 21 && rating < 41){
+    if(rating > 50 && rating < 70){
         html = `<i class="fas fa-star" aria-hidden="true"></i>
         <i class="fas fa-star" aria-hidden="true"></i>
         <i class="far fa-star" aria-hidden="true"></i>
         <i class="far fa-star" aria-hidden="true"></i>
         <i class="far fa-star" aria-hidden="true"></i>`
     }
-    if(rating > 41 && rating < 61){
+    if(rating > 70 && rating < 80){
         html = `<i class="fas fa-star" aria-hidden="true"></i>
         <i class="fas fa-star" aria-hidden="true"></i>
         <i class="fas fa-star" aria-hidden="true"></i>
         <i class="far fa-star" aria-hidden="true"></i>
         <i class="far fa-star" aria-hidden="true"></i>`
     }
-    if(rating > 61 && rating < 81){
+    if(rating > 80 && rating < 90){
         html = `<i class="fas fa-star" aria-hidden="true" ></i>
         <i class="fas fa-star" aria-hidden="true"></i>
         <i class="fas fa-star" aria-hidden="true"></i>
         <i class="fas fa-star" aria-hidden="true"></i>
         <i class="far fa-star" aria-hidden="true"></i>`
     }
-    if(rating > 81 && rating < 101){
+    if(rating > 90 && rating < 101){
         html = `<i class="fas fa-star" aria-hidden="true"></i>
         <i class="fas fa-star" aria-hidden="true"></i>
         <i class="fas fa-star" aria-hidden="true"></i>
@@ -188,7 +187,7 @@ const pageNumbering = (data) =>{
 
 const changePageWithSelect = (data) =>{
     const pageValue = (pageSelect.value);
-    const page = showMoreInformation(pageValue, data);
+    const page = showMoreInformation(pageValue, data); 
     return page;
 }
 
