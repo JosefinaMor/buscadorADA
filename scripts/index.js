@@ -7,6 +7,7 @@ const nextPageButton = document.getElementById("next-page-button");
 const lastPage = document.getElementById("last-page");
 
 const infoMovieSelected = document.getElementById("info-movie-selected");
+// Nunca usas esta variable 
 const ratingScore = document.getElementById("rating-score");
 
 //search section
@@ -37,6 +38,7 @@ const createCardsInHTML = (iValue, data) =>{//I receive the displayed movies and
 }
 
 const showMoreInformation = (iValue, data) =>{// i create the cards and put de onclick function to show more informtion
+    // mejor escribirlo asi: if (!data) {
     if (data === undefined){
         notFoundMessage();
     }
@@ -66,6 +68,7 @@ const showMoreInformation = (iValue, data) =>{// i create the cards and put de o
     return filmNumber;
 }
 
+// no usas el param "condition", no deberia estar 
 const fetchInformation = (arrayRout, condition) =>{ 
     const html = arrayRout.reduce((acc, element)=>{
         fetch(element)
@@ -78,6 +81,27 @@ const fetchInformation = (arrayRout, condition) =>{
     }, ``)
     return html;
 }
+    // No lo vimos en clase, pero cuando tenemos muchos fetch a la vez como en este caso usamos una manera
+    // mas compleja de promesas: Promise.all. Te animo a leer sobre el tema, es un poco mas avanzado de lo que veremos. 
+    // Te muestro como quedaria tu codigo funcionando:
+// const fetchInformation = (arrayRout, condition) => { 
+//     // Hacemos un array de fetch con cada una de las rutas. 
+//     const promisesArray = arrayRout.map(route => {
+//         return fetch(route).then(res => res.json())
+//     })
+//     // Ejecutamos el metodo Promise.all que ejecuta cada uno de los fetch del array
+//     Promise.all(promisesArray)
+//         .then((allValues) => {
+//            console.log(allValues)
+//            const html = allValues.reduce((acc, curr) => {
+//                return acc + `${createInfoExtra("characters", curr)}`
+//            }, "")
+//         //    Hacemos el HTML aca dentro de la promesa, no podemos acceder a los valores afuera
+//         //    (tendrias que borrar el html de showMoreInformation)
+//            const showCharacters = document.querySelector(".characters");
+//            showCharacters.innerHTML = html
+//         })
+// }
 
 const createInfoExtra = (condition, element) =>{// esta es la card que deberia crearse para mostrar la section de characters
     var html = ``;
@@ -95,6 +119,7 @@ const createInfoExtra = (condition, element) =>{// esta es la card que deberia c
 }
 
 const createRatingWithStars = (rating) =>{// it translate the ranking y number of stars
+    // no uses var, usa let 
     var html = ``;
     if(rating > 0 && rating < 50){
         html = `<i class="fas fa-star" aria-hidden="true"></i>
@@ -176,7 +201,9 @@ const createInfoMovieSelected = (cardData, rating) =>{
 }
 
 const pageNumbering = (data) =>{
+    // no uses var, usa let  
     var html = ``;
+    // let i en el for, nunca i a secas 
     for(i=0; i <= (Math.ceil(data.length/4)); i++){
         html = html + `
         <option value="${i * 4}">${i}</option>
@@ -218,6 +245,7 @@ const nextPageOperation = (iValue, data) =>{
 
 const searchByParameter = (param) =>{ //puedo buscar por parametro pero se me complica a la hora de utilizar una sola palabra que me busque opciones
     //nose si es porque la api no lo puede hacer o bueno solo busca por id  
+    // Noté lo mismo, creo que es un problema de la APi
     fetch(`https://ghibliapi.herokuapp.com/films/?title=${param}`)
     .then(res => res.json())
     .then((data)=>{
